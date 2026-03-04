@@ -10,7 +10,7 @@ const VCMessage = () => {
             <img
               src={vcPhoto}
               alt="Vice-Chancellor"
-              className="w-48 h-56 object-cover rounded-md shadow-md border-2 border-anu-gold"
+              className="w-56 h-64 object-cover rounded-md shadow-md"
             />
             <h3 className="mt-3 font-bold text-foreground text-center">Prof. Kancharla Gangadhara Rao</h3>
             <p className="text-sm text-muted-foreground text-center">Vice-Chancellor (I/c)</p>

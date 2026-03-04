@@ -71,16 +71,10 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Navigation */}
+      {/* Navigation — left aligned */}
       <nav className="bg-anu-nav relative z-50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between lg:justify-center">
-            <button
-              className="lg:hidden p-2 text-primary-foreground"
-              onClick={() => setMobileOpen(!mobileOpen)}
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          <div className="flex items-center justify-between">
             <ul className="hidden lg:flex items-center">
               {navItems.map((item) => (
                 <li
@@ -113,6 +107,12 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            <button
+              className="lg:hidden p-2 text-primary-foreground"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
 
