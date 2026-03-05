@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import registrarPhoto from "@/assets/registrar-photo.png";
+import registrarPhoto from "@/assets/registrar-photo2.png";
 
 const Registrar = () => {
   return (
@@ -10,7 +10,7 @@ const Registrar = () => {
         <h1 className="anu-section-title text-3xl">Registrar</h1>
         <div className="anu-card p-6">
           <div className="flex flex-col md:flex-row gap-6 items-start">
-            <div className="w-44 h-52 bg-muted rounded-md overflow-hidden shrink-0 border-2 border-anu-gold">
+            <div className="w-56 h-64 bg-muted rounded-md overflow-hidden shrink-0">
               <img src={registrarPhoto} alt="Prof. G. Simhachalam" className="w-full h-full object-cover" />
             </div>
             <div>
