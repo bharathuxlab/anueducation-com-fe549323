@@ -7,6 +7,9 @@ import PasscodeGate from "./components/PasscodeGate";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Administration from "./pages/Administration";
+import Chancellor from "./pages/Chancellor";
+import ViceChancellor from "./pages/ViceChancellor";
+import Registrar from "./pages/Registrar";
 import Academics from "./pages/Academics";
 import Results from "./pages/Results";
 import Contact from "./pages/Contact";
@@ -26,6 +29,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/administration" element={<Administration />} />
+            <Route path="/chancellor" element={<Chancellor />} />
+            <Route path="/vice-chancellor" element={<ViceChancellor />} />
+            <Route path="/registrar" element={<Registrar />} />
             <Route path="/academics" element={<Academics />} />
             <Route path="/results" element={<Results />} />
             <Route path="/contact" element={<Contact />} />
