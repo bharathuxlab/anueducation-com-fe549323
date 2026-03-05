@@ -22,10 +22,9 @@ const navItems = [
     label: "Administration",
     href: "/administration",
     children: [
-      { label: "Vice-Chancellor", href: "/administration" },
-      { label: "Registrar", href: "/administration#registrar" },
-      { label: "Rector", href: "/administration#rector" },
-      { label: "Finance Officer", href: "/administration#finance" },
+      { label: "Chancellor", href: "/chancellor" },
+      { label: "Vice-Chancellor", href: "/vice-chancellor" },
+      { label: "Registrar", href: "/registrar" },
     ],
   },
   {
