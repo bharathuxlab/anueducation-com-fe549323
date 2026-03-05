@@ -4,8 +4,26 @@
 
 <url>
 <loc>https://anueducation.com/</loc>
-<lastmod>2026-03-05</lastmod>
-<priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://anueducation.com/about</loc>
+</url>
+
+<url>
+<loc>https://anueducation.com/administration</loc>
+</url>
+
+<url>
+<loc>https://anueducation.com/academics</loc>
+</url>
+
+<url>
+<loc>https://anueducation.com/student-verify</loc>
+</url>
+
+<url>
+<loc>https://anueducation.com/contact</loc>
 </url>
 
 </urlset>
