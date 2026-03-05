@@ -14,16 +14,20 @@ const VCMessage = () => {
             />
             <h3 className="mt-3 font-bold text-foreground text-center">Prof. Kancharla Gangadhara Rao</h3>
             <p className="text-sm text-muted-foreground text-center">Vice-Chancellor (I/c)</p>
+            <p className="text-xs text-muted-foreground text-center">M.Tech., Ph.D.</p>
           </div>
           <div className="md:w-3/4">
-            <p className="text-foreground leading-relaxed mb-4">
-              It is a matter of privilege to be steering Acharya Nagarjuna University with the academic impulse to establish everything in Truth - "Satye Sarvam Pratishitam." The word Truth is simple yet sublime. Finding and practicing truth is difficult. Truth is relative so it is illusive. But Shankaracharya avers "Aham Bhramam" that is truth is inherent in you.
+            <p className="text-foreground leading-relaxed mb-4 italic">
+              'The Highest education is that which does not merely give us information but makes our life in harmony with all existence' – Rabindranath Tagore
             </p>
             <p className="text-foreground leading-relaxed mb-4">
-              Franz Kafka, the German philosophical writer, helps to identify the inherent truth is nothing but objective human conscience. Education is the best means to recognize the truth and which is our conscience.
+              Believing in the dictum "Knowledge is Power", Acharya Nagarjuna University has been delivering, disseminating and is creating human resources with sublime ethical standards. From November 2019 to till date Acharya Nagarjuna University has achieved 108 International Ranks, 39 National Ranks, 03 Certifications, 02 Records, 05 Awards in total 157 in different categories from well reputed World Ranking Organizations like Quacqarelli Symonds (QS), QS I-GAUGE, Times Higher Education (THE), Scimago, UI Green Metrics, National Institutional Ranking Frame Work (NIRF), MHRD – Swatchta Rankings, University Guru, SECA, INDIA TODAY, Green Mentors etc.
+            </p>
+            <p className="text-foreground leading-relaxed mb-4">
+              Research, Consultancy and Innovations are the pillars for overall holistic education that ANU promotes. Our faculty with celestial standards of teaching, explore the unexplored areas of research in Humanities, Social Sciences, Languages, Literatures, Sciences and contemporary disciplines of knowledge.
             </p>
             <p className="text-foreground leading-relaxed">
-              The object of Acharya Nagarjuna University is to illuminate the students and scholars to realize the truth in them to be conscious people who can perceive truth in the world around and build a society where "everything is established in truth."
+              ANU is marching ahead in the right direction, providing a holistic education to the future generations and is playing a positive role in nation building. We reiterate our endeavor to provide premium quality education accessible to all and an environment for the growth of over-all personality development leading to the generation of 'Global Humanists'.
             </p>
           </div>
         </div>
