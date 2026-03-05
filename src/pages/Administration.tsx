@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import chancellorPhoto from "@/assets/chancellor-photo.png";
 import vcPhoto from "@/assets/vc-photo.jpg";
-import registrarPhoto from "@/assets/registrar-photo.png";
+import registrarPhoto from "@/assets/registrar-photo2.png";
 
 const officers = [
   {
@@ -38,7 +38,7 @@ const Administration = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {officers.map((officer) => (
             <Link to={officer.link} key={officer.id} className="anu-card p-6 hover:shadow-lg transition-shadow text-center">
-              <div className="w-32 h-40 bg-muted rounded-md overflow-hidden mx-auto border-2 border-anu-gold mb-4">
+              <div className="w-40 h-48 bg-muted rounded-md overflow-hidden mx-auto mb-4">
                 <img src={officer.photo} alt={officer.name} className="w-full h-full object-cover" />
               </div>
               <h2 className="text-lg font-bold text-anu-maroon">{officer.name}</h2>
