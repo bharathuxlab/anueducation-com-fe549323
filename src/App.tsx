@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PasscodeGate from "./components/PasscodeGate";
+
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Administration from "./pages/Administration";
@@ -23,7 +23,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <PasscodeGate>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -39,7 +38,6 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </PasscodeGate>
     </TooltipProvider>
   </QueryClientProvider>
 );
