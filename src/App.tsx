@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import StudentVerify from "./pages/StudentVerify";
 import ANUDOA from "./pages/ANUDOA";
 import UniversityColleges from "./pages/UniversityColleges";
+import PlacementsGallery from "./pages/PlacementsGallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/anudoa" element={<ANUDOA />} />
             <Route path="/university-colleges" element={<UniversityColleges />} />
+            <Route path="/placements-gallery" element={<PlacementsGallery />} />
             <Route path="/student-verify" element={<StudentVerify />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
