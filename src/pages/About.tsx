@@ -38,27 +38,23 @@ const About = () => {
         </section>
 
         <section id="vision" className="mb-10">
+          <h2 className="text-2xl font-bold text-anu-maroon mb-6 text-center">ACHARYA NAGARJUNA UNIVERSITY — Vision & Mission</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="anu-card p-6">
-              <h2 className="text-xl font-bold text-anu-maroon mb-3 flex items-center gap-2">
-                <Eye size={22} /> Vision
-              </h2>
+              <h3 className="text-xl font-bold text-anu-maroon mb-3 flex items-center gap-2">
+                <Eye size={22} /> VISION
+              </h3>
               <p className="text-foreground leading-relaxed">
-                To become a world-class university that fosters academic excellence, innovative research, 
-                and holistic development, producing globally competent graduates who contribute to society.
+                To generate sources of knowledge that dispel ignorance and establish truth through teaching, learning and research.
               </p>
             </div>
             <div className="anu-card p-6">
-              <h2 className="text-xl font-bold text-anu-maroon mb-3 flex items-center gap-2">
-                <Target size={22} /> Mission
-              </h2>
-              <ul className="list-disc list-inside text-foreground space-y-2">
-                <li>Provide quality higher education accessible to all sections of society</li>
-                <li>Promote research and innovation in emerging areas</li>
-                <li>Foster industry-academia collaboration</li>
-                <li>Develop ethical and socially responsible citizens</li>
-                <li>Preserve and promote cultural heritage</li>
-              </ul>
+              <h3 className="text-xl font-bold text-anu-maroon mb-3 flex items-center gap-2">
+                <Target size={22} /> MISSION
+              </h3>
+              <p className="text-foreground leading-relaxed">
+                To promote a bank of human talent in diversified faculties – Commerce & Management Studies, Education, Engineering & Technology, Humanities, Law, Natural Sciences, Pharmacy, Physical Education & Sports Sciences, Physical Sciences and Social Sciences that would become an investment for a prosperous society.
+              </p>
             </div>
           </div>
         </section>
