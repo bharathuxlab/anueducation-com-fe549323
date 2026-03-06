@@ -30,9 +30,7 @@ const navItems = [
     href: "/academics",
     children: [
       { label: "Courses Offered", href: "/academics" },
-      { label: "Departments", href: "/academics#departments" },
-      { label: "Research Centres", href: "/academics#research" },
-      { label: "Library", href: "/academics#library" },
+      { label: "Affiliated Colleges", href: "/academics#affiliated-colleges" },
     ],
   },
   { label: "Student Verify", href: "/student-verify" },
