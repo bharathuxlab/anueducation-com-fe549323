@@ -33,6 +33,7 @@ const navItems = [
       { label: "Affiliated Colleges", href: "/academics#affiliated-colleges" },
     ],
   },
+  { label: "ANUDOA", href: "/anudoa" },
   { label: "Student Verify", href: "/student-verify" },
   { label: "Contact", href: "/contact" },
 ];
