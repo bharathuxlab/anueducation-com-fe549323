@@ -18,6 +18,10 @@ import ANUDOA from "./pages/ANUDOA";
 import UniversityColleges from "./pages/UniversityColleges";
 import PlacementsGallery from "./pages/PlacementsGallery";
 import Ranking from "./pages/Ranking";
+import RankingNIRF from "./pages/RankingNIRF";
+import RankingGreenMetric from "./pages/RankingGreenMetric";
+import RankingImpact from "./pages/RankingImpact";
+import RankingWorldUniversity from "./pages/RankingWorldUniversity";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +46,10 @@ const App = () => (
             <Route path="/university-colleges" element={<UniversityColleges />} />
             <Route path="/placements-gallery" element={<PlacementsGallery />} />
             <Route path="/ranking" element={<Ranking />} />
+            <Route path="/ranking/nirf" element={<RankingNIRF />} />
+            <Route path="/ranking/green-metric" element={<RankingGreenMetric />} />
+            <Route path="/ranking/impact" element={<RankingImpact />} />
+            <Route path="/ranking/world-university" element={<RankingWorldUniversity />} />
             <Route path="/student-verify" element={<StudentVerify />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
