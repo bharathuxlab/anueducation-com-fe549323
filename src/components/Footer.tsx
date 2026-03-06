@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { MapPin, Mail, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -36,12 +36,12 @@ const Footer = () => {
                 <span>Nagarjuna Nagar, Guntur - 522510, Andhra Pradesh, India</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone size={16} className="shrink-0 text-anu-gold" />
-                <span>0863-2293299</span>
+                <Mail size={16} className="shrink-0 text-anu-gold" />
+                <span>registrar@anueducation.com</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="shrink-0 text-anu-gold" />
-                <span>registrar@anueducation.in</span>
+                <span>helpcenter@anu.ac.in</span>
               </li>
               <li className="flex items-center gap-2">
                 <Globe size={16} className="shrink-0 text-anu-gold" />

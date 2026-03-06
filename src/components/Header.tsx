@@ -31,6 +31,7 @@ const navItems = [
     children: [
       { label: "Courses Offered", href: "/academics" },
       { label: "Affiliated Colleges", href: "/academics#affiliated-colleges" },
+      { label: "University Colleges", href: "/university-colleges" },
     ],
   },
   { label: "ANUDOA", href: "/anudoa" },

@@ -1,6 +1,9 @@
 import Header from "@/components/Header";
 import HeroCarousel from "@/components/HeroCarousel";
+import ContactBar from "@/components/ContactBar";
+import AboutUniversity from "@/components/AboutUniversity";
 import VCMessage from "@/components/VCMessage";
+import QuickInfoCards from "@/components/QuickInfoCards";
 import StatsSection from "@/components/StatsSection";
 import NewsSection from "@/components/NewsSection";
 import Footer from "@/components/Footer";
@@ -10,7 +13,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroCarousel />
+      <ContactBar />
+      <AboutUniversity />
       <VCMessage />
+      <QuickInfoCards />
       <StatsSection />
       <NewsSection />
       <Footer />

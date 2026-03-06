@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import vcPhoto from "@/assets/vc-photo.jpg";
+import vcPhoto from "@/assets/vc-photo-new.png";
 import registrarPhoto from "@/assets/registrar-photo.png";
 import registrarPhoto2 from "@/assets/registrar-photo2.png";
 
