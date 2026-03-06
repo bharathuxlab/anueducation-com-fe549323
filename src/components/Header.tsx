@@ -35,6 +35,7 @@ const navItems = [
     ],
   },
   { label: "ANUDOA", href: "/anudoa" },
+  { label: "Placements Gallery", href: "/placements-gallery" },
   { label: "Student Verify", href: "/student-verify" },
   { label: "Contact", href: "/contact" },
 ];
