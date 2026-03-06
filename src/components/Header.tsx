@@ -14,8 +14,6 @@ const navItems = [
       { label: "History", href: "/about#history" },
       { label: "Location", href: "/about#location" },
       { label: "Vision & Mission", href: "/about#vision" },
-      { label: "Our Emblem", href: "/about#emblem" },
-      { label: "ANU Song", href: "/about#song" },
     ],
   },
   {
