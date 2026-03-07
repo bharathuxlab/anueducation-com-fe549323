@@ -154,8 +154,136 @@ const pgResults = [
   { date: "08/10/2025", result: "M.A. ENGLISH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
 ];
 
+const ugResults = [
+  { date: "06/02/2026", result: "SPECIAL B.ED., III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025" },
+  { date: "06/02/2026", result: "ANU UG 5TH SEMISTER REGULAR EXAMINATIONS RESULTS NOVEMBER 2025" },
+  { date: "04/02/2026", result: "B.Ed. III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS" },
+  { date: "30/01/2026", result: "ANU UG 3 SEMESTER REGULER/SUPPLY RESULTS OCTOMBER/NOVEMBER 2025" },
+  { date: "26/11/2025", result: "ANU UG 6 SEMESTER REVALUATION RESULTS FOR JUNE JULY-2025" },
+  { date: "26/11/2025", result: "ANU UG 5 SEMESTER REVALUATION RESULTS FOR JUNE JULY-2025" },
+  { date: "15/09/2025", result: "ANU UG 4 SEMESTER REVALUATION REGULAR & SUPPLY RESULTS FOR MAR-2025" },
+  { date: "30/08/2025", result: "UG 6 SEMISTER SUPPLY EXAM RESULTS JUNE 2025" },
+  { date: "30/08/2025", result: "UG 5 SEMISTER SUPPLY EXAM RESULTS JUNE 2025" },
+  { date: "23/08/2025", result: "ANU UG 8TH SEM REGULER APRIL 2025" },
+  { date: "29/07/2025", result: "B.Ed IV SEMESTER REGULAR EXAMINATIONS MAY-2025 RESULTS" },
+  { date: "28/07/2025", result: "ANU UG 2ND SEMISTER RESULTS APRIL 2025" },
+  { date: "10/07/2025", result: "I/IV BACHELOR OF FINE ARTS II SEMESTER REGULAR EXAMINATIONS APRIL-2025 RESULTS" },
+  { date: "06/07/2025", result: "SPECIAL B.Ed., I SEMESTER REGULAR EXAMINATIONS MARCH-2025 RESULTS" },
+  { date: "06/07/2025", result: "B.Ed I SEMESTER REGULAR EXAMINATIONS MAY-2025" },
+  { date: "06/07/2025", result: "B.Ed I SEMESTER REGULAR EXAMINATIONS MARCH-2025" },
+  { date: "01/07/2025", result: "ANU UG SEM4 RESULTS MAR-2025" },
+  { date: "28/06/2025", result: "SPECIAL B.ED. III SEMESTER REGULAR EXAMINATIONS FEBRUARY-2025" },
+  { date: "25/06/2025", result: "BACHELOR OF FINE ARTS II/IV II SEMESTER REGULAR EXAMINATIONS APRIL-2025" },
+  { date: "23/06/2025", result: "B.ED III SEMESTER REGULAR RESULTS FEBRUARY-2025" },
+  { date: "19/06/2025", result: "B.ED II SEMESTER REVALUATION NOVEMBER-2024 RESULTS" },
+  { date: "16/06/2025", result: "ANU UG SEM I REGULAR REVALUATION RESULT DECEMBER 2024." },
+  { date: "16/06/2025", result: "ANU UG SEM III REGULAR REVALUATION RESULT NOVEMBER 2024." },
+  { date: "29/05/2025", result: "ANU UG SEM 5 REGULAR REVALUATION RESULT NOVEMBER 2024." },
+];
+
+const btechResults = [
+  { date: "20/02/2026", result: "III/V B.ARCHITECTURE & PLANNING I SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "20/02/2026", result: "III/V B.ARCHITECTURE & PLANNING II SEMESTER SUPPLY EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "20/02/2026", result: "IV/V B.ARCHITECTURE & PLANNING II SUPPLY EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "20/02/2026", result: "V/V B.ARCHITECTURE AND PLANNING SEMESTER-II SUPPLY EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "16/02/2026", result: "III/IV B.TECH II SEMESTER SUPPLY EXAMINATIONS DECEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "IV/V B.ARCHITECTURE & PLANNING I SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "V/V B.ARCHITECTURE & PLANNING I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 RESULTS." },
+  { date: "23/12/2025", result: "II/IV B.TECH I SEMESTER SUPPLY EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "23/12/2025", result: "I/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "23/12/2025", result: "I/IV B.TECH I SEMESTER SUPPLY EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "21/11/2025", result: "II/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "21/11/2025", result: "III/IV B.TECH I SEMESTER SUPPLY EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "21/11/2025", result: "III/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "07/11/2025", result: "II/IV B.TECH I SEMESTER SUPPLY EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "03/11/2025", result: "II/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 (HONOR/MINOR) RESULTS." },
+  { date: "03/11/2025", result: "I/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025." },
+  { date: "24/10/2025", result: "I/V B.ARCHITECTURE AND PLANNING II SEMESTER REGULAR EXAMINATION AUGUST-2025 RESULTS." },
+  { date: "24/10/2025", result: "I/V B.ARCHITECTURE & PLANNING I SEMESTER SUPPLY EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "14/10/2025", result: "I/IV B.TECH I SEMESTER SUPPLY EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "08/10/2025", result: "III/IV B.TECH I SEMESTER SUPPLY EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "01/10/2025", result: "II/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "27/09/2025", result: "III/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS (R-20)." },
+  { date: "27/09/2025", result: "III/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS (R-19)." },
+  { date: "27/09/2025", result: "III/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS (HONOR)." },
+  { date: "27/09/2025", result: "III/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS (MINOR)." },
+  { date: "25/09/2025", result: "III/IV B.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "10/09/2025", result: "M.A. ARCHAEOLOGY I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+];
+
+const mtechResults = [
+  { date: "06/03/2026", result: "M.B.A. (HOSPITAL MANAGEMENT) III SEM REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "06/03/2026", result: "M.B.A INTERNATIONAL BUSINESS III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "28/02/2026", result: "M.B.A. (HOSPITAL ADMINISTRATION) III SEM REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.B.A III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "M.B.A. (MEDIA MANAGEMENT) III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "M.B.A. (HUMAN RESOURCE MANAGEMENT) III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.B.A. (TRAVEL & TOURISM MANAGEMENT) III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "02/01/2026", result: "M.TECH IV SEMESTER REGULAR EXAMINATION AUGUST-2025 RESULTS." },
+  { date: "30/12/2025", result: "M.B.A INTERNATIONAL BUSINESS II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "30/12/2025", result: "M.B.A. II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "05/11/2025", result: "M.B.A. (HOSPITAL MANAGEMENT) II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "04/11/2025", result: "M.B.A. HOSPITAL ADMINISTRATION II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "04/11/2025", result: "M.B.A. (MEDIA MANAGEMENT) II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "04/11/2025", result: "M.B.A. (TTM) II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "03/11/2025", result: "M.TECH IV SEMESTER REGULAR EXAMINATION AUGUST-2025 RESULTS." },
+  { date: "03/11/2025", result: "M.TECH III SEMESTER REGULAR EXAMINATIONS MARCH-2025 RESULTS." },
+  { date: "25/10/2025", result: "M.B.A. IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "24/10/2025", result: "M.B.A II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "17/10/2025", result: "MBA INTERNATIONAL BUSINESS II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "06/10/2025", result: "M.B.A. (HOSPITAL MANAGEMENT) II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "06/10/2025", result: "M.B.A.(HUMAN RESOURSE MANAGEMENT) II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "27/09/2025", result: "M.B.A INTERNATIONAL BUSINESS I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "27/09/2025", result: "M.B.A. I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "27/09/2025", result: "M.B.A. (HOSPITAL ADMINISTRATION) IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "22/09/2025", result: "M.B.A. (MEDIA MANAGEMENT) II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "19/09/2025", result: "M.B.A. HOSPITAL ADMINISTRATION II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "19/09/2025", result: "M.B.A. (TTM) II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "10/09/2025", result: "M.B.A. (HOSPITAL ADMINISTRATION) III SEM REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "10/09/2025", result: "M.B.A. (HOSPITAL ADMINISTRATION) III SEM REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "10/09/2025", result: "M.B.A. III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "10/09/2025", result: "M.B.A. (HOSPITAL MANAGEMENT) I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "10/09/2025", result: "M.B.A. (HA) I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "09/09/2025", result: "M.B.A. (TECHNOLOGY MANAGEMENT) IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 RESULTS." },
+  { date: "06/09/2025", result: "M.TECH II SEMESTER REGULAR EXAMINATIONS JULY-2025." },
+  { date: "01/09/2025", result: "M.B.A IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 RESULTS." },
+];
+
+const pharmacyResults = [
+  { date: "29/01/2026", result: "M.PHARMACY III & IV SEMESTER REGULAR EXAMINATIONS OCTOBER-2025 RESULTS" },
+  { date: "19/12/2025", result: "I/IV B.PHARMACY II SEMESTER REGULAR EXAMINATIONS OCTOBER-2025 RESULTS." },
+  { date: "18/12/2025", result: "II/IV B.PHARMACY IV SEMESTER REGULAR EXAMINATIONS SEPTEMBER-2025 RESULTS." },
+  { date: "18/12/2025", result: "III/IV B.PHARMACY VI SEMESTER REGULAR EXAMINATIONS SEPTEMBER-2025 RESULTS." },
+  { date: "12/12/2025", result: "I/VI PHARM.D REGULAR EXAMINATIONS OCTOBER-2025 RESULTS." },
+  { date: "12/12/2025", result: "III/IV B.PHARMACY V SEMESTER SUPPLY EXAMINATIONS SEPTEMBER-2025 RESULTS." },
+  { date: "09/12/2025", result: "II/IV B.PHARMACY III SEMESTER SUPPLY EXAMINATIONS SEPTEMBER-2025 RESULTS." },
+  { date: "08/12/2025", result: "I/IV B.PHARMACY I SEMESTER SUPPLY EXAMINATIONS OCTOBER-2025 RESULTS." },
+  { date: "05/12/2025", result: "I/II M.PHARMACY I SEMESTER SUPPLY EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "05/12/2025", result: "I/II M.PHARMACY II SEMESTER REGULAR EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "24/10/2025", result: "II/VI PHARM.D REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "24/10/2025", result: "III/VI PHARM.D REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "24/10/2025", result: "IV/VI PHARM.D REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "24/10/2025", result: "V/VI PHARM.D REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "01/10/2025", result: "IV/IV B.PHARMACY VIII SEMESTER REGULAR EXAMINATIONS JUNE-2025 REVALUATION RESULTS." },
+  { date: "01/10/2025", result: "II/IV B.PHARMACY IV SEMESTER SUPPLY EXAMINATIONS MARCH-2025 REVALUATION RESULTS." },
+  { date: "01/10/2025", result: "II/IV B.PHARMACY III SEMESTER REGULAR EXAMINATIONS MARCH-2025 REVALUATION RESULTS." },
+  { date: "01/10/2025", result: "I/IV B.PHARMACY II SEMESTER SUPPLY EXAMINATIONS MARCH-2025 REVALUATION RESULTS." },
+  { date: "01/10/2025", result: "I/IV B.PHARMACY I SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "01/10/2025", result: "III/IV B.PHARMACY V SEMESTER REGULAR EXAMINATIONS MARCH-2025 REVALUATION RESULTS." },
+  { date: "01/10/2025", result: "III/IV B.PHARMACY VI SEMESTER SUPPLY EXAMINATIONS FEBRAURY-2025 REVALUATION RESULTS." },
+];
+
+const resultsMap: Record<string, { date: string; result: string }[]> = {
+  "PG and Professional courses": pgResults,
+  "UG": ugResults,
+  "B.Tech and B.Arch": btechResults,
+  "M.Tech": mtechResults,
+  "Pharmacy": pharmacyResults,
+};
+
 const Results = () => {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const currentResults = resultsMap[activeCategory] || [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -193,32 +321,26 @@ const Results = () => {
         </div>
 
         {/* Results Table */}
-        {activeCategory === "PG and Professional courses" ? (
-          <div className="border border-border rounded-b-md overflow-hidden">
-            <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
-              <table className="w-full text-sm">
-                <thead className="bg-muted sticky top-0">
-                  <tr>
-                    <th className="text-left px-4 py-3 font-semibold text-foreground border-b border-border w-[130px]">Date</th>
-                    <th className="text-left px-4 py-3 font-semibold text-foreground border-b border-border">Result</th>
+        <div className="border border-border rounded-b-md overflow-hidden">
+          <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
+            <table className="w-full text-sm">
+              <thead className="bg-muted sticky top-0">
+                <tr>
+                  <th className="text-left px-4 py-3 font-semibold text-foreground border-b border-border w-[130px]">Date</th>
+                  <th className="text-left px-4 py-3 font-semibold text-foreground border-b border-border">Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentResults.map((item, i) => (
+                  <tr key={i} className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-background" : "bg-muted/30"} hover:bg-accent/50 transition-colors`}>
+                    <td className="px-4 py-2.5 text-muted-foreground whitespace-nowrap">{item.date}</td>
+                    <td className="px-4 py-2.5 text-foreground cursor-pointer hover:text-primary transition-colors">{item.result}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {pgResults.map((item, i) => (
-                    <tr key={i} className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-background" : "bg-muted/30"} hover:bg-accent/50 transition-colors`}>
-                      <td className="px-4 py-2.5 text-muted-foreground whitespace-nowrap">{item.date}</td>
-                      <td className="px-4 py-2.5 text-foreground cursor-pointer hover:text-primary transition-colors">{item.result}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ) : (
-          <div className="border border-border rounded-b-md p-12 text-center text-muted-foreground">
-            <p>Results for {activeCategory} will be updated soon.</p>
-          </div>
-        )}
+        </div>
       </div>
       <Footer />
     </div>
