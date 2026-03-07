@@ -1,54 +1,224 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search } from "lucide-react";
+import { useState } from "react";
+
+const categories = [
+  "PG and Professional courses",
+  "UG",
+  "B.Tech and B.Arch",
+  "M.Tech",
+  "Pharmacy",
+];
+
+const pgResults = [
+  { date: "06/03/2026", result: "BBA L.L.B HONORS IV SEMESTER - REGULAR EXAMINATIONS OCTOBER-2025." },
+  { date: "06/03/2026", result: "BBA L.L.B HONORS II SEMESTER - REGULAR EXAMINATIONS OCTOBER-2025." },
+  { date: "24/02/2026", result: "B.P.Ed. III SEMESTER REGULAR EXAMINATIONS DECEMBER-2025 RESULTS." },
+  { date: "20/02/2026", result: "L.L.B. III/III 5th & V/V 9th SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "20/02/2026", result: "M.Ed. III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "18/02/2026", result: "M.SC. SOLID WASTE MANAGEMENT AND POLLUTION CONTROL III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "18/02/2026", result: "M.C.A III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "16/02/2026", result: "M.SC. ENVIRONMENTAL SCIENCE III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "16/02/2026", result: "M.SC. COMPUTER SCIENCE III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.SC. BOTANY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "DIPLOMA IN MUSIC (VOCAL) REGULAR EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.VOC FOOD PROCESSING & QUALITY MANAGEMENT III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.VOC HORTICULTURE & LANDSCAPE GARDENING III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.SC. CHEMISTRY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.COM III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.Sc. NANO-TECHNOLOGY II/V I SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.Sc. NANO-TECHNOLOGY III/V I SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "12/02/2026", result: "M.Sc. NANO-TECHNOLOGY V/V I SEMESTER REGULAR EXAMINATIONS DECEMBER-2025 RESULTS." },
+  { date: "10/02/2026", result: "D.P.Ed. III SEMESTER REGULAR EXAMINATIONS DECEMBER-2025 RESULTS." },
+  { date: "10/02/2026", result: "M.P.Ed. III SEMESTER REGULAR EXAMINATIONS DECEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "L.L.B. I/V II SEMESTER REGULAR EXAMINATION SEPTEMBER-2025 REVALUATION RESULTS." },
+  { date: "07/02/2026", result: "L.L.B I/III 2nd & III/V 6th SEMESTER REGULAR EXAMINATION SEPTEMBER-2025 REVALUATION RESULTS." },
+  { date: "07/02/2026", result: "M.A. HISTORY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "M.A JOURNALISM & MASS COMMUNICATION III SEM REGULAR EXAMS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "M.A. MUSIC (VOCAL) III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "M.A. DANCE (KUCHIPUDI) III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "MASTER OF SOCIAL WORK III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "MPA THEATRE ARTS III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "M.A. APPLIED LINGUISTICS AND TRANSLATION STUDIES III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "07/02/2026", result: "M.A. ENGLISH III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "05/02/2026", result: "INTEGRATED M.A. PUBLIC POLICY III YEAR V SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "05/02/2026", result: "M.A. MAHAYANA BUDDHIST STUDIES III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "05/02/2026", result: "M.A. POLITICAL SCIENCE III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. AQUACULTURE III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. COMPUTATIONAL DATA SCIENCE III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. FORENSIC SCIENCES III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. GEOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. MATHEMATICS III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. FORESTRY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. NANO-BIOTECHNOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. SOIL SCIENCE & AGRICULTURAL CHEMISTRY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "03/02/2026", result: "M.SC. ZOOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. URDU III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. TELUGU III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. SOCIOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. SANSKRIT III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A RURAL DEVELOPMENT III SEMESTER REGULAR EXAMINATION NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. PUBLIC ADMINISTRATION III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. PERFORMING ARTS (CINEMA AND TV) III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. DANCE (BHARATANATYAM) III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "INTEGRATED M.A. PUBLIC POLICY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. HINDI III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. ECONOMICS III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.A. ARCHAEOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "MASTER LIBRARY & INFORMATION SCIENCE III SEM REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. STATISTICS III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. PSYCHOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. PHYSICS III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. MICROBIOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. FOOD SCIENCE, NUTRITION & DIETETICS III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. ELECTRONICS & INSTRUMENTATION TECHNOLOGY III SEM REGULAR EXAMINATION NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. BIO-TECHNOLOGY III SEMESTER REGULAR EXAMINATIONS NOVEMBER-2025 RESULTS." },
+  { date: "31/01/2026", result: "M.SC. BIO-CHEMISTRY III SEMESTER REGULAR EXAMINATION NOVEMBER-2025 RESULTS." },
+  { date: "23/01/2026", result: "M.SC. CHEMISTRY II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "23/01/2026", result: "M.SC. COMPUTATIONAL DATA SCIENCE I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "23/01/2026", result: "M.SC. BOTANY II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "20/01/2026", result: "LL.M. II SEMESTER REGULAR EXAMINATIONS OCTOBER-2025 RESULTS." },
+  { date: "02/01/2026", result: "M.C.A. II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "02/01/2026", result: "M.Sc. MATHEMATICS II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "02/01/2026", result: "M.SC. AQUACULTURE I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "02/01/2026", result: "M.SC. PHYSICS II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "02/01/2026", result: "M.SC. COMPUTER SCIENCE II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "30/12/2025", result: "LL.M. IV SEMESTER REGULAR EXAMINATIONS OCTOBER-2025 RESULTS." },
+  { date: "30/12/2025", result: "L.L.B. II/V IV SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "30/12/2025", result: "L.L.B. II/III 4th & IV/V 8th SEMESTER REGULAR JULY-2025 REVALUATION RESULTS." },
+  { date: "30/12/2025", result: "M.SC. FOOD SCIENCE, NUTRITION & DIETETICS II SEMESTER EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "30/12/2025", result: "M.SC. BIO-CHEMISTRY II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "24/12/2025", result: "B.Ed. II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "17/12/2025", result: "L.L.B. I/V II SEMESTER REGULAR EXAMINATION SEPTEMBER-2025 RESULTS." },
+  { date: "17/12/2025", result: "L.L.B. I/III 2nd SEMESTER & III/V 6th SEMESTER REGULAR EXAMINATIONS SEPTEMBER-2025 RESULTS." },
+  { date: "08/12/2025", result: "BAL/BBA L.L.B HONORS I SEMESTER - REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "22/11/2025", result: "L.L.B. II/III 3rd & IV/V 7th SEMESTER DEGREE REGULAR EXAMINATIONS FEBRUARY-2025 REVALUATION RESULTS." },
+  { date: "21/11/2025", result: "M.SC. BIO-CHEMISTRY I SEMESTER REGULAR EXAMINATION JANUARY-2025 REVALUATION RESULTS." },
+  { date: "21/11/2025", result: "M.SC. BIO-CHEMISTRY III SEMESTER REGULAR EXAMINATION JANUARY-2025 REVALUATION RESULTS." },
+  { date: "21/11/2025", result: "M.SC. BIO-CHEMISTRY IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "21/11/2025", result: "M.P.Ed. II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "20/11/2025", result: "I/V L.L.B I SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "20/11/2025", result: "L.L.B. II/V 3rd SEMESTER REGULAR EXAMINATIONS FEBRAURY-2025 REVALUATION RESULTS." },
+  { date: "20/11/2025", result: "M.Sc., YOGA FOR HUMAN EXECELLENCE I YEAR SEM-II REGULAR EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "18/11/2025", result: "L.L.B. III/III 6th & V/V 10th SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "18/11/2025", result: "P.G DIPLOMA IN YOGA FOR HUMAN EXECELLANCE SEM-II REGULAR EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "18/11/2025", result: "M.Sc., YOGA FOR HUMAN EXECELLENCE II YEAR SEM-IV REGULAR EXAMINATION JULY-2025 RESULTS." },
+  { date: "15/11/2025", result: "M.SC. PHYSICS IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "15/11/2025", result: "M.Sc. MATHEMATICS IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "15/11/2025", result: "M.SC. COMPUTER SCIENCE IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "15/11/2025", result: "M.SC. CHEMISTRY IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "15/11/2025", result: "M.SC. BOTANY IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "05/11/2025", result: "M.Sc. NANO-TECHNOLOGY IV/V I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION." },
+  { date: "05/11/2025", result: "M.Sc. NANO-TECHNOLOGY III/V I SEMESTER REGULAR EXAMINATIONS OCTOBER-2024 REVALUATION." },
+  { date: "05/11/2025", result: "M.COM II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "05/11/2025", result: "M.SC. FOOD SCIENCE, NUTRITION & DIETETICS IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "05/11/2025", result: "B.Ed. IV SEMESTER REGULAR EXAMINATIONS MAY-2025 REVALUATION RESULTS." },
+  { date: "05/11/2025", result: "B.Ed. 1st SEMESTER REGULAR EXAMINATIONS MARCH-2025 REVALUATION RESULTS." },
+  { date: "04/11/2025", result: "M.A. ARCHAEOLOGY II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "04/11/2025", result: "M.A. PUBLIC ADMINISTRATION II SEMESTER REGULAR EXAMINATIONS JULY-2025 REVALUATION RESULTS." },
+  { date: "03/11/2025", result: "M.Sc. NANO-TECHNOLOGY V/V II SEMESTER REGULAR EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "03/11/2025", result: "M.SC. FOOD SCIENCE, NUTRITION & DIETETICS I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULT." },
+  { date: "03/11/2025", result: "LL.M. III SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "03/11/2025", result: "M.Sc. NANO-TECHNOLOGY I/V REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "03/11/2025", result: "II/V M.Sc. NANO-TECHNOLOGY II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "03/11/2025", result: "B.Ed. III SEMESTER REGULAR EXAMINATIONS FEBRUARY-2025 REVALUATION RESULTS." },
+  { date: "03/11/2025", result: "B.ED., II SEMESTER REGULAR EXAMINATIONS JULY-2025." },
+  { date: "03/11/2025", result: "SPECIAL B.ED., II SEMESTER REGULAR EXAMINATIONS JULY-2025." },
+  { date: "01/11/2025", result: "M.SC. CHEMISTRY I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.SC. BOTANY I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.SC. BOTANY III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.SC. COMPUTER SCIENCE I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.SC. COMPUTER SCIENCE III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.SC. ELECTRONICS & INSTRUMENTATION TECHNOLOGY I SEM REGULAR EXAMS JANUARY-2025 REVAL." },
+  { date: "01/11/2025", result: "LL.M. I SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.SC. MATHEMATICS I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.C.A I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.C.A III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "01/11/2025", result: "M.SC. PHYSICS I SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "27/10/2025", result: "DIPLOMA, ADV. DIPLOMA & CERTIFICATE COURSE IN FIRE & INDUSTRIAL SAFETY AUG-2025 RESULTS." },
+  { date: "27/10/2025", result: "M.SC. CHEMISTRY III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "27/10/2025", result: "M.SC. MATHEMATICS III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "27/10/2025", result: "M.SC. FORESTRY III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "27/10/2025", result: "M.SC. PHYSICS III SEMESTER REGULAR EXAMINATIONS JANUARY-2025 REVALUATION RESULTS." },
+  { date: "25/10/2025", result: "M.Sc. NANO-TECHNOLOGY IV/V II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "25/10/2025", result: "DIPLOMA IN JOURNALISM EXAMINATIONS AUGUST-2025 RESULTS." },
+  { date: "24/10/2025", result: "M.Ed. IV SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "24/10/2025", result: "I/V INTEGRATED M.Sc. NANOTECHNOLOGY II SEMESTER JULY-2025 RESULTS." },
+  { date: "23/10/2025", result: "L.L.B. 5 YEARS 4th SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "23/10/2025", result: "L.L.B. 3 YEARS 4th & 5 YEARS 8th SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "23/10/2025", result: "I/III L.L.B I SEMESTER REGULAR EXAMINATIONS APRIL-2025 REVALUATION RESULTS." },
+  { date: "21/10/2025", result: "M.Sc. NANO-TECHNOLOGY III/V II SEMESTER REGULAR EXAMINATIONS AUGUST-2025." },
+  { date: "17/10/2025", result: "MPA THEATRE ARTS II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "14/10/2025", result: "DIPLOMA IN PHOTOGRAPHY II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "14/10/2025", result: "M.SC. CHEMISTRY II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+  { date: "08/10/2025", result: "M.A. ENGLISH II SEMESTER REGULAR EXAMINATIONS JULY-2025 RESULTS." },
+];
 
 const Results = () => {
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <div className="container mx-auto px-4 py-10">
-        <h1 className="anu-section-title text-3xl">Examination Results</h1>
-
-        {/* Search */}
-        <div className="anu-card p-6 mb-8">
-          <h2 className="font-bold text-foreground mb-4">Search Results</h2>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <select className="border border-input rounded-md px-4 py-2 text-sm bg-background text-foreground flex-1">
-              <option>Select Examination</option>
-              <option>B.A. 1st Year</option>
-              <option>B.Sc. 2nd Year</option>
-              <option>M.A. Final Year</option>
-              <option>MBA 1st Semester</option>
-            </select>
-            <input
-              type="text"
-              placeholder="Enter Hall Ticket Number"
-              className="border border-input rounded-md px-4 py-2 text-sm bg-background text-foreground flex-1"
-            />
-            <button className="bg-primary text-primary-foreground px-6 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity flex items-center gap-2">
-              <Search size={16} /> Search
-            </button>
-          </div>
+        <div className="text-center mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-anu-maroon uppercase tracking-wide">
+            Acharya Nagarjuna University
+          </h1>
+          <h2 className="anu-section-title text-xl md:text-2xl mt-2">Results</h2>
         </div>
 
-        {/* Recent Results */}
-        <h2 className="anu-section-title">Recent Results</h2>
-        <div className="space-y-3">
-          {[
-            "B.A./B.Sc./B.Com. I, III, V Semester Results — Feb 2026",
-            "M.A./M.Sc./M.Com. I, III Semester Results — Feb 2026",
-            "MBA/MCA II Semester Results — Jan 2026",
-            "B.Tech III Year I Semester Results — Jan 2026",
-            "B.Ed. I Year Results — Dec 2025",
-            "B.Pharm IV Year II Semester Results — Dec 2025",
-            "LLB III Year Results — Nov 2025",
-          ].map((result, i) => (
-            <div key={i} className="anu-card p-4 flex items-center justify-between cursor-pointer hover:border-primary/50 border border-transparent transition-colors">
-              <span className="text-sm text-foreground">{result}</span>
-              <span className="anu-badge">View</span>
-            </div>
+        {/* Category Tabs */}
+        <div className="flex flex-wrap gap-2 mb-8 justify-center">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors border ${
+                activeCategory === cat
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-background text-foreground border-border hover:bg-muted"
+              }`}
+            >
+              {cat}
+            </button>
           ))}
         </div>
+
+        {/* Results heading */}
+        <div className="bg-primary text-primary-foreground px-4 py-3 rounded-t-md">
+          <h3 className="font-semibold text-sm md:text-base">
+            ACHARYA NAGARJUNA UNIVERSITY - {activeCategory} Results
+          </h3>
+        </div>
+
+        {/* Results Table */}
+        {activeCategory === "PG and Professional courses" ? (
+          <div className="border border-border rounded-b-md overflow-hidden">
+            <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-muted sticky top-0">
+                  <tr>
+                    <th className="text-left px-4 py-3 font-semibold text-foreground border-b border-border w-[130px]">Date</th>
+                    <th className="text-left px-4 py-3 font-semibold text-foreground border-b border-border">Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pgResults.map((item, i) => (
+                    <tr key={i} className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-background" : "bg-muted/30"} hover:bg-accent/50 transition-colors`}>
+                      <td className="px-4 py-2.5 text-muted-foreground whitespace-nowrap">{item.date}</td>
+                      <td className="px-4 py-2.5 text-foreground cursor-pointer hover:text-primary transition-colors">{item.result}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : (
+          <div className="border border-border rounded-b-md p-12 text-center text-muted-foreground">
+            <p>Results for {activeCategory} will be updated soon.</p>
+          </div>
+        )}
       </div>
       <Footer />
     </div>

@@ -46,6 +46,17 @@ const navItems = [
       { label: "World University Ranking", href: "/ranking/world-university" },
     ],
   },
+  {
+    label: "Results",
+    href: "/results",
+    children: [
+      { label: "PG and Professional courses", href: "/results" },
+      { label: "UG", href: "/results?tab=ug" },
+      { label: "B.Tech and B.Arch", href: "/results?tab=btech" },
+      { label: "M.Tech", href: "/results?tab=mtech" },
+      { label: "Pharmacy", href: "/results?tab=pharmacy" },
+    ],
+  },
   { label: "Placements Gallery", href: "/placements-gallery" },
   { label: "Student Verify", href: "/student-verify" },
   { label: "Contact", href: "/contact" },
