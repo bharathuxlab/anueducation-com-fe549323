@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Menu, X, ChevronDown, Mail } from "lucide-react";
 import anuLogo from "@/assets/anu-logo.png";
@@ -69,6 +69,21 @@ const Header = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [pdfModal, setPdfModal] = useState<{ title: string; src: string } | null>(null);
   const [secondaryDropdown, setSecondaryDropdown] = useState<string | null>(null);
+  const secondaryNavRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        secondaryNavRef.current &&
+        !secondaryNavRef.current.contains(event.target as Node)
+      ) {
+        setSecondaryDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   return (
     <>
@@ -178,7 +193,7 @@ const Header = () => {
       </nav>
 
       {/* Secondary Navigation */}
-      <div className="bg-foreground border-t border-border/10">
+      <div className="bg-foreground border-t border-border/10" ref={secondaryNavRef}>
         <div className="container mx-auto px-4 overflow-x-auto overflow-y-visible">
           <ul className="flex items-center whitespace-nowrap min-w-max">
             {[
@@ -203,12 +218,7 @@ const Header = () => {
               { label: "SSR", href: "#" },
               { label: "Pensioner Details", href: "#" },
             ].map((item) => (
-              <li
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => item.children && setSecondaryDropdown(item.label)}
-                onMouseLeave={() => setSecondaryDropdown(null)}
-              >
+              <li key={item.label} className="relative">
                 {item.children ? (
                   <button
                     type="button"
@@ -234,6 +244,7 @@ const Header = () => {
                     {item.children.map((child) => (
                       <li key={child.label}>
                         <button
+                          type="button"
                           onClick={() => {
                             setPdfModal({ title: child.label, src: child.pdf });
                             setSecondaryDropdown(null);
