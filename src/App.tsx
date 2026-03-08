@@ -23,6 +23,7 @@ import RankingGreenMetric from "./pages/RankingGreenMetric";
 import RankingImpact from "./pages/RankingImpact";
 import RankingWorldUniversity from "./pages/RankingWorldUniversity";
 import RDCell from "./pages/RDCell";
+import ResearchCell from "./pages/ResearchCell";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="/ranking/world-university" element={<RankingWorldUniversity />} />
             <Route path="/student-verify" element={<StudentVerify />} />
             <Route path="/rd-cell" element={<RDCell />} />
+            <Route path="/research-cell" element={<ResearchCell />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
