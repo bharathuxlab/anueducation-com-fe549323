@@ -206,6 +206,9 @@ const Header = () => {
                 children: [
                   { label: "Consultancy Policy", pdf: "/documents/consultancy-policy.pdf" },
                   { label: "IT Policy", pdf: "/documents/it-policy.pdf" },
+                  { label: "Research Policy", pdf: "#" },
+                  { label: "Plastic free Policy", pdf: "#" },
+                  { label: "Green Environment Policy", pdf: "#" },
                 ],
               },
               { label: "ANU Regulations", href: "#" },
@@ -240,16 +243,16 @@ const Header = () => {
                 )}
 
                 {item.children && secondaryDropdown === item.label && (
-                  <ul className="absolute top-full left-0 bg-background shadow-lg rounded-b-md min-w-[220px] py-1 z-50 border border-border">
+                  <ul className="absolute top-full left-0 bg-background shadow-lg min-w-[250px] z-50 border-l-4 border-l-anu-red border border-border">
                     {item.children.map((child) => (
-                      <li key={child.label}>
+                      <li key={child.label} className="border-b border-border last:border-b-0">
                         <button
                           type="button"
                           onClick={() => {
                             setPdfModal({ title: child.label, src: child.pdf });
                             setSecondaryDropdown(null);
                           }}
-                          className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                          className="block w-full text-left px-4 py-3 text-sm text-foreground hover:bg-muted transition-colors"
                         >
                           {child.label}
                         </button>
