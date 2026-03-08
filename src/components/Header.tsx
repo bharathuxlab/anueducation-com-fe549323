@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Menu, X, ChevronDown, Mail } from "lucide-react";
 import anuLogo from "@/assets/anu-logo.png";
@@ -69,6 +69,21 @@ const Header = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [pdfModal, setPdfModal] = useState<{ title: string; src: string } | null>(null);
   const [secondaryDropdown, setSecondaryDropdown] = useState<string | null>(null);
+  const secondaryNavRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        secondaryNavRef.current &&
+        !secondaryNavRef.current.contains(event.target as Node)
+      ) {
+        setSecondaryDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
 
   return (
     <>
