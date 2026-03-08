@@ -173,6 +173,30 @@ const Header = () => {
         )}
       </nav>
 
+      {/* Secondary Navigation */}
+      <div className="bg-foreground">
+        <div className="container mx-auto px-4">
+          <ul className="flex items-center gap-1">
+            <li>
+              <Link
+                to="/rd-cell"
+                className="block px-4 py-2 text-sm font-medium text-background hover:bg-primary/20 transition-colors"
+              >
+                R & D Cell
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/research-cell"
+                className="block px-4 py-2 text-sm font-medium text-background hover:bg-primary/20 transition-colors"
+              >
+                Research Cell
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       {/* Marquee */}
       <div className="bg-anu-gold/10 border-b border-border overflow-hidden py-1">
         <div className="animate-marquee flex whitespace-nowrap">
