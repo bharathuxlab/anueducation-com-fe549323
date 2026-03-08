@@ -35,6 +35,7 @@ const navItems = [
     ],
   },
   { label: "ANUDOA", href: "/anudoa" },
+  { label: "R & D Cell", href: "/rd-cell" },
   {
     label: "Ranking",
     href: "/ranking",

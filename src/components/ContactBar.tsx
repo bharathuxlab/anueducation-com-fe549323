@@ -14,7 +14,7 @@ const ContactBar = () => {
         <Mail size={28} className="shrink-0 text-anu-gold" />
         <div>
           <h3 className="font-bold text-sm uppercase tracking-wide">Email Us</h3>
-          <p className="text-sm opacity-90">registrar@anueducation.com</p>
+          <p className="text-sm opacity-90">registrar@anueducation.in</p>
         </div>
       </div>
     </div>
