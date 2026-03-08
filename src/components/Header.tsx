@@ -174,25 +174,34 @@ const Header = () => {
       </nav>
 
       {/* Secondary Navigation */}
-      <div className="bg-foreground">
-        <div className="container mx-auto px-4">
-          <ul className="flex items-center gap-1">
-            <li>
-              <Link
-                to="/rd-cell"
-                className="block px-4 py-2 text-sm font-medium text-background hover:bg-primary/20 transition-colors"
-              >
-                R & D Cell
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/research-cell"
-                className="block px-4 py-2 text-sm font-medium text-background hover:bg-primary/20 transition-colors"
-              >
-                Research Cell
-              </Link>
-            </li>
+      {/* Secondary Navigation */}
+      <div className="bg-foreground border-t border-border/10">
+        <div className="container mx-auto px-4 overflow-x-auto">
+          <ul className="hidden lg:flex items-center flex-wrap">
+            {[
+              { label: "R & D Cell", href: "/rd-cell" },
+              { label: "Research Cell", href: "/research-cell" },
+              { label: "ANU Grievances", href: "#" },
+              { label: "ANU Policies", href: "#" },
+              { label: "ANU Regulations", href: "#" },
+              { label: "News Letters", href: "#" },
+              { label: "Web Mail", href: "#" },
+              { label: "ANU Radio 91.2", href: "#" },
+              { label: "NCC", href: "#" },
+              { label: "ELC", href: "#" },
+              { label: "Others", href: "#" },
+              { label: "SSR", href: "#" },
+              { label: "Pensioner Details", href: "#" },
+            ].map((item) => (
+              <li key={item.label}>
+                <Link
+                  to={item.href}
+                  className="block px-3 py-2 text-xs font-medium text-background/80 hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10 last:border-r-0"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
