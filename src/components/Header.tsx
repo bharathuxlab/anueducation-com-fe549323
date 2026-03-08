@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Menu, X, ChevronDown, Mail } from "lucide-react";
+import { Document, Page, pdfjs } from "react-pdf";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 import anuLogo from "@/assets/anu-logo.png";
 import azadiImg from "@/assets/azadi-mahotsav.png";
 import { Link } from "react-router-dom";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -68,8 +73,12 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [pdfModal, setPdfModal] = useState<{ title: string; src: string } | null>(null);
+  const [pdfError, setPdfError] = useState<string | null>(null);
+  const [pdfPageCount, setPdfPageCount] = useState(0);
+  const [pdfPageWidth, setPdfPageWidth] = useState(1100);
   const [secondaryDropdown, setSecondaryDropdown] = useState<string | null>(null);
   const secondaryNavRef = useRef<HTMLDivElement | null>(null);
+  const pdfContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -84,6 +93,22 @@ const Header = () => {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
+
+  useEffect(() => {
+    setPdfError(null);
+    setPdfPageCount(0);
+
+    const updateWidth = () => {
+      if (!pdfContainerRef.current) return;
+      const nextWidth = Math.max(320, Math.min(1200, pdfContainerRef.current.clientWidth - 24));
+      setPdfPageWidth(nextWidth);
+    };
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [pdfModal?.src]);
 
   return (
     <>
@@ -308,17 +333,68 @@ const Header = () => {
     </header>
 
       <Dialog open={!!pdfModal} onOpenChange={() => setPdfModal(null)}>
-        <DialogContent className="max-w-4xl h-[80vh]">
-          <DialogHeader>
+        <DialogContent className="w-[95vw] max-w-[95vw] h-[92vh] flex flex-col p-4">
+          <DialogHeader className="flex items-center justify-between">
             <DialogTitle>{pdfModal?.title}</DialogTitle>
+            {pdfModal?.src && (
+              <a
+                href={pdfModal.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-primary hover:underline"
+              >
+                Open PDF
+              </a>
+            )}
           </DialogHeader>
-          {pdfModal && (
-            <iframe
-              src={pdfModal.src}
-              className="w-full flex-1 h-full rounded border border-border"
-              title={pdfModal.title}
-            />
-          )}
+
+          <div ref={pdfContainerRef} className="w-full flex-1 rounded border border-border bg-muted/10 overflow-auto">
+            {pdfModal?.src && !pdfError && (
+              <Document
+                file={pdfModal.src}
+                onLoadSuccess={({ numPages }) => {
+                  setPdfPageCount(numPages);
+                  setPdfError(null);
+                }}
+                onLoadError={() => {
+                  setPdfError("Unable to preview this PDF here. Please use Open PDF.");
+                }}
+                loading={
+                  <div className="h-full w-full flex items-center justify-center text-sm text-muted-foreground py-10">
+                    Loading PDF...
+                  </div>
+                }
+                className="flex flex-col items-center gap-4 py-3"
+              >
+                {Array.from({ length: pdfPageCount }, (_, index) => (
+                  <Page
+                    key={`pdf-page-${index + 1}`}
+                    pageNumber={index + 1}
+                    width={pdfPageWidth}
+                    renderAnnotationLayer={false}
+                    renderTextLayer={false}
+                    className="shadow-sm"
+                  />
+                ))}
+              </Document>
+            )}
+
+            {pdfError && (
+              <div className="h-full w-full flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground px-4 text-center py-10">
+                <p>{pdfError}</p>
+                {pdfModal?.src && (
+                  <a
+                    href={pdfModal.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-primary-foreground hover:opacity-90"
+                  >
+                    Open PDF in new tab
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
         </DialogContent>
       </Dialog>
     </>
