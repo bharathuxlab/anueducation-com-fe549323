@@ -178,10 +178,9 @@ const Header = () => {
       </nav>
 
       {/* Secondary Navigation */}
-      {/* Secondary Navigation */}
       <div className="bg-foreground border-t border-border/10">
-        <div className="container mx-auto px-4 overflow-x-auto">
-          <ul className="hidden lg:flex items-center flex-wrap">
+        <div className="container mx-auto px-4 overflow-x-auto overflow-y-visible">
+          <ul className="flex items-center whitespace-nowrap min-w-max">
             {[
               { label: "R & D Cell", href: "/rd-cell" },
               { label: "Research Cell", href: "/research-cell" },
@@ -189,7 +188,6 @@ const Header = () => {
               { label: "ANU Grievances", href: "#" },
               {
                 label: "ANU Policies",
-                href: "#",
                 children: [
                   { label: "Consultancy Policy", pdf: "/documents/consultancy-policy.pdf" },
                   { label: "IT Policy", pdf: "/documents/it-policy.pdf" },
@@ -211,15 +209,28 @@ const Header = () => {
                 onMouseEnter={() => item.children && setSecondaryDropdown(item.label)}
                 onMouseLeave={() => setSecondaryDropdown(null)}
               >
-                <Link
-                  to={item.href}
-                  className="block px-3 py-2 text-xs font-medium text-background/80 hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10 last:border-r-0"
-                >
-                  {item.label}
-                  {item.children && <span className="ml-1">▾</span>}
-                </Link>
+                {item.children ? (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSecondaryDropdown((prev) => (prev === item.label ? null : item.label))
+                    }
+                    className="flex items-center gap-1 px-3 py-2 text-xs font-medium text-background/80 hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10"
+                  >
+                    {item.label}
+                    <ChevronDown size={12} />
+                  </button>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className="block px-3 py-2 text-xs font-medium text-background/80 hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10 last:border-r-0"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+
                 {item.children && secondaryDropdown === item.label && (
-                  <ul className="absolute top-full left-0 bg-background shadow-lg rounded-b-md min-w-[180px] py-1 z-50 border border-border">
+                  <ul className="absolute top-full left-0 bg-background shadow-lg rounded-b-md min-w-[220px] py-1 z-50 border border-border">
                     {item.children.map((child) => (
                       <li key={child.label}>
                         <button
