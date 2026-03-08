@@ -68,6 +68,9 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [pdfModal, setPdfModal] = useState<{ title: string; src: string } | null>(null);
+  const [pdfViewerUrl, setPdfViewerUrl] = useState<string | null>(null);
+  const [pdfLoading, setPdfLoading] = useState(false);
+  const [pdfError, setPdfError] = useState<string | null>(null);
   const [secondaryDropdown, setSecondaryDropdown] = useState<string | null>(null);
   const secondaryNavRef = useRef<HTMLDivElement | null>(null);
 
@@ -84,6 +87,55 @@ const Header = () => {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
+
+  useEffect(() => {
+    if (!pdfModal?.src) {
+      setPdfViewerUrl(null);
+      setPdfError(null);
+      setPdfLoading(false);
+      return;
+    }
+
+    let objectUrl: string | null = null;
+    let cancelled = false;
+
+    const loadPdf = async () => {
+      setPdfLoading(true);
+      setPdfError(null);
+
+      try {
+        const response = await fetch(pdfModal.src);
+        if (!response.ok) {
+          throw new Error(`Failed to load PDF (${response.status})`);
+        }
+
+        const blob = await response.blob();
+        objectUrl = URL.createObjectURL(blob);
+
+        if (!cancelled) {
+          setPdfViewerUrl(objectUrl);
+        }
+      } catch {
+        if (!cancelled) {
+          setPdfViewerUrl(null);
+          setPdfError("Unable to preview this PDF here. Please use Open PDF.");
+        }
+      } finally {
+        if (!cancelled) {
+          setPdfLoading(false);
+        }
+      }
+    };
+
+    loadPdf();
+
+    return () => {
+      cancelled = true;
+      if (objectUrl) {
+        URL.revokeObjectURL(objectUrl);
+      }
+    };
+  }, [pdfModal?.src]);
 
   return (
     <>
@@ -308,17 +360,52 @@ const Header = () => {
     </header>
 
       <Dialog open={!!pdfModal} onOpenChange={() => setPdfModal(null)}>
-        <DialogContent className="max-w-4xl h-[80vh]">
-          <DialogHeader>
+        <DialogContent className="w-[95vw] max-w-[95vw] h-[92vh] flex flex-col p-4">
+          <DialogHeader className="flex items-center justify-between">
             <DialogTitle>{pdfModal?.title}</DialogTitle>
+            {pdfModal?.src && (
+              <a
+                href={pdfModal.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-primary hover:underline"
+              >
+                Open PDF
+              </a>
+            )}
           </DialogHeader>
-          {pdfModal && (
-            <iframe
-              src={pdfModal.src}
-              className="w-full flex-1 h-full rounded border border-border"
-              title={pdfModal.title}
-            />
-          )}
+
+          <div className="w-full flex-1 rounded border border-border bg-muted/10 overflow-hidden">
+            {pdfLoading && (
+              <div className="h-full w-full flex items-center justify-center text-sm text-muted-foreground">
+                Loading PDF...
+              </div>
+            )}
+
+            {!pdfLoading && pdfViewerUrl && pdfModal && (
+              <iframe
+                src={`${pdfViewerUrl}#toolbar=1&navpanes=0&zoom=page-width`}
+                className="w-full h-full"
+                title={pdfModal.title}
+              />
+            )}
+
+            {!pdfLoading && !pdfViewerUrl && (
+              <div className="h-full w-full flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground px-4 text-center">
+                <p>{pdfError ?? "PDF preview unavailable in this browser."}</p>
+                {pdfModal?.src && (
+                  <a
+                    href={pdfModal.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-primary-foreground hover:opacity-90"
+                  >
+                    Open PDF in new tab
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
         </DialogContent>
       </Dialog>
     </>
