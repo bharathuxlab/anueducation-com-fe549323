@@ -193,8 +193,8 @@ const Header = () => {
       </nav>
 
       {/* Secondary Navigation */}
-      <div className="bg-foreground border-t border-border/10" ref={secondaryNavRef}>
-        <div className="container mx-auto px-4 overflow-x-auto overflow-y-visible">
+      <div className="bg-foreground border-t border-border/10 relative z-40" ref={secondaryNavRef}>
+        <div className="container mx-auto px-4 overflow-visible">
           <ul className="flex items-center whitespace-nowrap min-w-max">
             {[
               { label: "R & D Cell", href: "/rd-cell" },
