@@ -236,15 +236,7 @@ const Header = () => {
                   { label: "Green Environment Policy" },
                 ],
               },
-              { label: "ANU Regulations", href: "#" },
-              { label: "News Letters", href: "#" },
-              { label: "Web Mail", href: "#" },
-              { label: "ANU Radio 91.2", href: "#" },
-              { label: "NCC", href: "#" },
-              { label: "ELC", href: "#" },
-              { label: "Others", href: "#" },
               { label: "SSR", pdf: "/documents/ssr.pdf" },
-              { label: "Pensioner Details", href: "#" },
             ].map((item) => (
               <li key={item.label} className="relative">
                 {item.children ? (
