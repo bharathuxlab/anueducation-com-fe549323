@@ -258,7 +258,7 @@ const Header = () => {
                             disabled={!hasPdf}
                             onClick={() => {
                               if (!hasPdf) return;
-                              setPdfModal({ title: child.label, src: child.pdf });
+                              setPdfModal({ title: child.label, src: child.pdf! });
                               setSecondaryDropdown(null);
                             }}
                             className={`block w-full text-left px-4 py-3 text-sm transition-colors ${
