@@ -181,7 +181,7 @@ const Header = () => {
             {[
               { label: "R & D Cell", href: "/rd-cell" },
               { label: "Research Cell", href: "/research-cell" },
-              { label: "ANU Grievances", href: "#" },
+              { label: "NSS", href: "/nss" },
               { label: "ANU Policies", href: "#" },
               { label: "ANU Regulations", href: "#" },
               { label: "News Letters", href: "#" },

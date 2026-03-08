@@ -24,6 +24,7 @@ import RankingImpact from "./pages/RankingImpact";
 import RankingWorldUniversity from "./pages/RankingWorldUniversity";
 import RDCell from "./pages/RDCell";
 import ResearchCell from "./pages/ResearchCell";
+import NSSCell from "./pages/NSSCell";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/student-verify" element={<StudentVerify />} />
             <Route path="/rd-cell" element={<RDCell />} />
             <Route path="/research-cell" element={<ResearchCell />} />
+            <Route path="/nss" element={<NSSCell />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
