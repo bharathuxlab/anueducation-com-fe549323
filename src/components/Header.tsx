@@ -258,6 +258,22 @@ const Header = () => {
         </div>
       </div>
     </header>
+
+      {/* PDF Modal */}
+      <Dialog open={!!pdfModal} onOpenChange={() => setPdfModal(null)}>
+        <DialogContent className="max-w-4xl h-[80vh]">
+          <DialogHeader>
+            <DialogTitle>{pdfModal?.title}</DialogTitle>
+          </DialogHeader>
+          {pdfModal && (
+            <iframe
+              src={pdfModal.src}
+              className="w-full flex-1 h-full rounded border border-border"
+              title={pdfModal.title}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
   );
 };
 
