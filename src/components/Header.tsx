@@ -237,6 +237,14 @@ const Header = () => {
                     {item.label}
                     <ChevronDown size={12} />
                   </button>
+                ) : item.pdf ? (
+                  <button
+                    type="button"
+                    onClick={() => setPdfModal({ title: item.label, src: item.pdf! })}
+                    className="block px-3 py-2 text-xs font-medium text-background/80 hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10"
+                  >
+                    {item.label}
+                  </button>
                 ) : (
                   <Link
                     to={item.href}
