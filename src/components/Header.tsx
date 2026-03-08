@@ -259,7 +259,6 @@ const Header = () => {
       </div>
     </header>
 
-      {/* PDF Modal */}
       <Dialog open={!!pdfModal} onOpenChange={() => setPdfModal(null)}>
         <DialogContent className="max-w-4xl h-[80vh]">
           <DialogHeader>
@@ -274,6 +273,7 @@ const Header = () => {
           )}
         </DialogContent>
       </Dialog>
+    </>
   );
 };
 
