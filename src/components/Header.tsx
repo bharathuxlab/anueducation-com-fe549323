@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Menu, X, ChevronDown, Mail } from "lucide-react";
+import { Document, Page, pdfjs } from "react-pdf";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 import anuLogo from "@/assets/anu-logo.png";
 import azadiImg from "@/assets/azadi-mahotsav.png";
 import { Link } from "react-router-dom";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -68,11 +73,12 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [pdfModal, setPdfModal] = useState<{ title: string; src: string } | null>(null);
-  const [pdfViewerUrl, setPdfViewerUrl] = useState<string | null>(null);
-  const [pdfLoading, setPdfLoading] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
+  const [pdfPageCount, setPdfPageCount] = useState(0);
+  const [pdfPageWidth, setPdfPageWidth] = useState(1100);
   const [secondaryDropdown, setSecondaryDropdown] = useState<string | null>(null);
   const secondaryNavRef = useRef<HTMLDivElement | null>(null);
+  const pdfContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -89,52 +95,19 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (!pdfModal?.src) {
-      setPdfViewerUrl(null);
-      setPdfError(null);
-      setPdfLoading(false);
-      return;
-    }
+    setPdfError(null);
+    setPdfPageCount(0);
 
-    let objectUrl: string | null = null;
-    let cancelled = false;
-
-    const loadPdf = async () => {
-      setPdfLoading(true);
-      setPdfError(null);
-
-      try {
-        const response = await fetch(pdfModal.src);
-        if (!response.ok) {
-          throw new Error(`Failed to load PDF (${response.status})`);
-        }
-
-        const blob = await response.blob();
-        objectUrl = URL.createObjectURL(blob);
-
-        if (!cancelled) {
-          setPdfViewerUrl(objectUrl);
-        }
-      } catch {
-        if (!cancelled) {
-          setPdfViewerUrl(null);
-          setPdfError("Unable to preview this PDF here. Please use Open PDF.");
-        }
-      } finally {
-        if (!cancelled) {
-          setPdfLoading(false);
-        }
-      }
+    const updateWidth = () => {
+      if (!pdfContainerRef.current) return;
+      const nextWidth = Math.max(320, Math.min(1200, pdfContainerRef.current.clientWidth - 24));
+      setPdfPageWidth(nextWidth);
     };
 
-    loadPdf();
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
 
-    return () => {
-      cancelled = true;
-      if (objectUrl) {
-        URL.revokeObjectURL(objectUrl);
-      }
-    };
+    return () => window.removeEventListener("resize", updateWidth);
   }, [pdfModal?.src]);
 
   return (
@@ -375,24 +348,40 @@ const Header = () => {
             )}
           </DialogHeader>
 
-          <div className="w-full flex-1 rounded border border-border bg-muted/10 overflow-hidden">
-            {pdfLoading && (
-              <div className="h-full w-full flex items-center justify-center text-sm text-muted-foreground">
-                Loading PDF...
-              </div>
+          <div ref={pdfContainerRef} className="w-full flex-1 rounded border border-border bg-muted/10 overflow-auto">
+            {pdfModal?.src && !pdfError && (
+              <Document
+                file={pdfModal.src}
+                onLoadSuccess={({ numPages }) => {
+                  setPdfPageCount(numPages);
+                  setPdfError(null);
+                }}
+                onLoadError={() => {
+                  setPdfError("Unable to preview this PDF here. Please use Open PDF.");
+                }}
+                loading={
+                  <div className="h-full w-full flex items-center justify-center text-sm text-muted-foreground py-10">
+                    Loading PDF...
+                  </div>
+                }
+                className="flex flex-col items-center gap-4 py-3"
+              >
+                {Array.from({ length: pdfPageCount }, (_, index) => (
+                  <Page
+                    key={`pdf-page-${index + 1}`}
+                    pageNumber={index + 1}
+                    width={pdfPageWidth}
+                    renderAnnotationLayer={false}
+                    renderTextLayer={false}
+                    className="shadow-sm"
+                  />
+                ))}
+              </Document>
             )}
 
-            {!pdfLoading && pdfViewerUrl && pdfModal && (
-              <iframe
-                src={`${pdfViewerUrl}#toolbar=1&navpanes=0&zoom=page-width`}
-                className="w-full h-full"
-                title={pdfModal.title}
-              />
-            )}
-
-            {!pdfLoading && !pdfViewerUrl && (
-              <div className="h-full w-full flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground px-4 text-center">
-                <p>{pdfError ?? "PDF preview unavailable in this browser."}</p>
+            {pdfError && (
+              <div className="h-full w-full flex flex-col items-center justify-center gap-3 text-sm text-muted-foreground px-4 text-center py-10">
+                <p>{pdfError}</p>
                 {pdfModal?.src && (
                   <a
                     href={pdfModal.src}
