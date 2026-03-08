@@ -206,7 +206,7 @@ const Header = () => {
                 children: [
                   { label: "Consultancy Policy", pdf: "/documents/consultancy-policy.pdf" },
                   { label: "IT Policy", pdf: "/documents/it-policy.pdf" },
-                  { label: "Research Policy" },
+                  { label: "Research Policy", pdf: "/documents/research-policy.pdf" },
                   { label: "Plastic free Policy" },
                   { label: "Green Environment Policy" },
                 ],
