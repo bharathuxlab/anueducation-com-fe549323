@@ -206,9 +206,9 @@ const Header = () => {
                 children: [
                   { label: "Consultancy Policy", pdf: "/documents/consultancy-policy.pdf" },
                   { label: "IT Policy", pdf: "/documents/it-policy.pdf" },
-                  { label: "Research Policy", pdf: "#" },
-                  { label: "Plastic free Policy", pdf: "#" },
-                  { label: "Green Environment Policy", pdf: "#" },
+                  { label: "Research Policy" },
+                  { label: "Plastic free Policy" },
+                  { label: "Green Environment Policy" },
                 ],
               },
               { label: "ANU Regulations", href: "#" },
@@ -228,7 +228,11 @@ const Header = () => {
                     onClick={() =>
                       setSecondaryDropdown((prev) => (prev === item.label ? null : item.label))
                     }
-                    className="flex items-center gap-1 px-3 py-2 text-xs font-medium text-background/80 hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10"
+                    className={`flex items-center gap-1 px-3 py-2 text-xs font-medium hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10 ${
+                      secondaryDropdown === item.label
+                        ? "text-anu-red border-b-2 border-anu-red"
+                        : "text-background/80"
+                    }`}
                   >
                     {item.label}
                     <ChevronDown size={12} />
@@ -244,20 +248,30 @@ const Header = () => {
 
                 {item.children && secondaryDropdown === item.label && (
                   <ul className="absolute top-full left-0 bg-background shadow-lg min-w-[250px] z-50 border-l-4 border-l-anu-red border border-border">
-                    {item.children.map((child) => (
-                      <li key={child.label} className="border-b border-border last:border-b-0">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setPdfModal({ title: child.label, src: child.pdf });
-                            setSecondaryDropdown(null);
-                          }}
-                          className="block w-full text-left px-4 py-3 text-sm text-foreground hover:bg-muted transition-colors"
-                        >
-                          {child.label}
-                        </button>
-                      </li>
-                    ))}
+                    {item.children.map((child) => {
+                      const hasPdf = Boolean(child.pdf);
+
+                      return (
+                        <li key={child.label} className="border-b border-border last:border-b-0">
+                          <button
+                            type="button"
+                            disabled={!hasPdf}
+                            onClick={() => {
+                              if (!hasPdf) return;
+                              setPdfModal({ title: child.label, src: child.pdf! });
+                              setSecondaryDropdown(null);
+                            }}
+                            className={`block w-full text-left px-4 py-3 text-sm transition-colors ${
+                              hasPdf
+                                ? "text-foreground hover:bg-muted"
+                                : "text-muted-foreground cursor-not-allowed"
+                            }`}
+                          >
+                            {child.label}
+                          </button>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
               </li>
