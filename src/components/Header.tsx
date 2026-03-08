@@ -218,7 +218,7 @@ const Header = () => {
               { label: "NCC", href: "#" },
               { label: "ELC", href: "#" },
               { label: "Others", href: "#" },
-              { label: "SSR", href: "#" },
+              { label: "SSR", pdf: "/documents/ssr.pdf" },
               { label: "Pensioner Details", href: "#" },
             ].map((item) => (
               <li key={item.label} className="relative">
