@@ -71,6 +71,7 @@ const Header = () => {
   const [secondaryDropdown, setSecondaryDropdown] = useState<string | null>(null);
 
   return (
+    <>
     <header>
       {/* Top Banner */}
       <div className="flex flex-col md:flex-row items-stretch">
