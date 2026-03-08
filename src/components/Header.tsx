@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Menu, X, ChevronDown, Mail } from "lucide-react";
 import anuLogo from "@/assets/anu-logo.png";
 import azadiImg from "@/assets/azadi-mahotsav.png";
@@ -66,8 +67,11 @@ const navItems = [
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [pdfModal, setPdfModal] = useState<{ title: string; src: string } | null>(null);
+  const [secondaryDropdown, setSecondaryDropdown] = useState<string | null>(null);
 
   return (
+    <>
     <header>
       {/* Top Banner */}
       <div className="flex flex-col md:flex-row items-stretch">
@@ -182,7 +186,15 @@ const Header = () => {
               { label: "R & D Cell", href: "/rd-cell" },
               { label: "Research Cell", href: "/research-cell" },
               { label: "NSS", href: "/nss" },
-              { label: "ANU Policies", href: "#" },
+              { label: "ANU Grievances", href: "#" },
+              {
+                label: "ANU Policies",
+                href: "#",
+                children: [
+                  { label: "Consultancy Policy", pdf: "/documents/consultancy-policy.pdf" },
+                  { label: "IT Policy", pdf: "/documents/it-policy.pdf" },
+                ],
+              },
               { label: "ANU Regulations", href: "#" },
               { label: "News Letters", href: "#" },
               { label: "Web Mail", href: "#" },
@@ -193,13 +205,36 @@ const Header = () => {
               { label: "SSR", href: "#" },
               { label: "Pensioner Details", href: "#" },
             ].map((item) => (
-              <li key={item.label}>
+              <li
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => item.children && setSecondaryDropdown(item.label)}
+                onMouseLeave={() => setSecondaryDropdown(null)}
+              >
                 <Link
                   to={item.href}
                   className="block px-3 py-2 text-xs font-medium text-background/80 hover:text-background hover:bg-primary/20 transition-colors border-r border-background/10 last:border-r-0"
                 >
                   {item.label}
+                  {item.children && <span className="ml-1">▾</span>}
                 </Link>
+                {item.children && secondaryDropdown === item.label && (
+                  <ul className="absolute top-full left-0 bg-background shadow-lg rounded-b-md min-w-[180px] py-1 z-50 border border-border">
+                    {item.children.map((child) => (
+                      <li key={child.label}>
+                        <button
+                          onClick={() => {
+                            setPdfModal({ title: child.label, src: child.pdf });
+                            setSecondaryDropdown(null);
+                          }}
+                          className="block w-full text-left px-4 py-2 text-sm text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                        >
+                          {child.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
@@ -224,6 +259,22 @@ const Header = () => {
         </div>
       </div>
     </header>
+
+      <Dialog open={!!pdfModal} onOpenChange={() => setPdfModal(null)}>
+        <DialogContent className="max-w-4xl h-[80vh]">
+          <DialogHeader>
+            <DialogTitle>{pdfModal?.title}</DialogTitle>
+          </DialogHeader>
+          {pdfModal && (
+            <iframe
+              src={pdfModal.src}
+              className="w-full flex-1 h-full rounded border border-border"
+              title={pdfModal.title}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

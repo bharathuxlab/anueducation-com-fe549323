@@ -22,12 +22,9 @@ const NSSCell = () => {
             <div className="mt-3 text-center">
               <h3 className="text-lg font-bold text-anu-maroon">Dr. D. Ravi Sankar Reddy</h3>
               <p className="text-sm text-muted-foreground">Co-Ordinator I/c</p>
-              <p className="text-sm text-muted-foreground">+91 9849605798</p>
+              <p className="text-sm text-muted-foreground">+91 9790886929</p>
               <p className="text-sm text-anu-red">
                 <a href="mailto:nssanu2012@gmail.com" className="hover:underline">nssanu2012@gmail.com</a>
-              </p>
-              <p className="text-sm text-anu-red">
-                <a href="mailto:nssanu2023@gmail.com" className="hover:underline">nssanu2023@gmail.com</a>
               </p>
             </div>
           </div>
