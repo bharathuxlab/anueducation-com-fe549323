@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Mail } from "lucide-react";
 import anuLogo from "@/assets/anu-logo.png";
 import azadiImg from "@/assets/azadi-mahotsav.png";
 import { Link } from "react-router-dom";
@@ -68,7 +68,25 @@ const Header = () => {
 
   return (
     <header>
-      {/* Top Header */}
+      {/* Top Banner */}
+      <div className="flex flex-col md:flex-row items-stretch">
+        <div className="bg-[hsl(15,80%,60%)] px-4 py-2 flex items-center gap-2 text-primary-foreground text-sm font-medium whitespace-nowrap">
+          <Mail size={16} />
+          <span>Email Now : <a href="mailto:registrar@anueducation.in" className="font-bold hover:underline">registrar@anueducation.in</a></span>
+        </div>
+        <div className="flex-1 bg-[hsl(190,60%,30%)] px-4 py-2 flex items-center justify-center text-primary-foreground text-center">
+          <p className="text-sm md:text-base font-bold leading-tight">
+            Accredited by NAAC with "A+ Grade (With 3.46 Outstanding Score in Dual Mode Category - First in the State &amp; Country)"
+          </p>
+        </div>
+        <div className="bg-[hsl(190,60%,30%)] px-4 py-2 flex items-center gap-3 justify-end">
+          <a href="mailto:registrar@anueducation.in" className="text-primary-foreground hover:text-anu-gold transition-colors">
+            <Mail size={22} />
+          </a>
+        </div>
+      </div>
+
+      {/* University Header */}
       <div className="bg-background border-b border-border">
         <div className="container mx-auto flex items-center justify-between py-3 px-4">
           <Link to="/" className="flex items-center gap-4">
