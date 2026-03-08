@@ -1,19 +1,31 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import campusHero from "@/assets/campus-hero.jpg";
+import gallery1 from "@/assets/gallery-1.png";
+import gallery2 from "@/assets/gallery-2.png";
+import gallery3 from "@/assets/gallery-3.png";
+import gallery4 from "@/assets/gallery-4.png";
+import gallery5 from "@/assets/gallery-5.png";
 
 const slides = [
   {
-    image: campusHero,
+    image: gallery1,
     title: "ANU Becomes INDIA's First Public University To Achieve QS I-GAUGE LEAD CERTIFICATE",
   },
   {
-    image: campusHero,
+    image: gallery2,
     title: "Welcome to Acharya Nagarjuna University — A Centre of Academic Excellence Since 1976",
   },
   {
-    image: campusHero,
-    title: "NAAC 'A' Grade Accredited — Shaping Future Leaders in Education & Research",
+    image: gallery3,
+    title: "NAAC 'A+' Grade Accredited — Shaping Future Leaders in Education & Research",
+  },
+  {
+    image: gallery4,
+    title: "Induction & Orientation Programme — Nurturing Tomorrow's Leaders",
+  },
+  {
+    image: gallery5,
+    title: "World-Class Infrastructure for Holistic Learning & Development",
   },
 ];
 
