@@ -7,26 +7,11 @@ import gallery4 from "@/assets/gallery-4.png";
 import gallery5 from "@/assets/gallery-5.png";
 
 const slides = [
-  {
-    image: gallery1,
-    title: "ANU Becomes INDIA's First Public University To Achieve QS I-GAUGE LEAD CERTIFICATE",
-  },
-  {
-    image: gallery2,
-    title: "Welcome to Acharya Nagarjuna University — A Centre of Academic Excellence Since 1976",
-  },
-  {
-    image: gallery3,
-    title: "NAAC 'A+' Grade Accredited — Shaping Future Leaders in Education & Research",
-  },
-  {
-    image: gallery4,
-    title: "Induction & Orientation Programme — Nurturing Tomorrow's Leaders",
-  },
-  {
-    image: gallery5,
-    title: "World-Class Infrastructure for Holistic Learning & Development",
-  },
+  { image: gallery1 },
+  { image: gallery2 },
+  { image: gallery3 },
+  { image: gallery4 },
+  { image: gallery5 },
 ];
 
 const HeroCarousel = () => {
@@ -50,15 +35,9 @@ const HeroCarousel = () => {
         >
           <img
             src={slide.image}
-            alt={slide.title}
+            alt={`ANU Campus ${i + 1}`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-foreground/30" />
-          <div className="absolute inset-0 flex items-center justify-center px-4">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center max-w-4xl leading-tight drop-shadow-lg text-primary-foreground animate-fade-in-up">
-              {slide.title}
-            </h2>
-          </div>
         </div>
       ))}
 
