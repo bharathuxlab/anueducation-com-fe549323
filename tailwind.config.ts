@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
+        sans: ['Source Sans 3', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
         telugu: ['Noto Sans Telugu', 'sans-serif'],
       },
       colors: {
@@ -80,20 +81,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

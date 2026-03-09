@@ -11,16 +11,21 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <section className="py-12 bg-anu-dark">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+    <section className="py-16 bg-gradient-to-br from-anu-dark to-anu-nav relative overflow-hidden">
+      {/* Decorative pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-secondary rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full translate-x-1/3 translate-y-1/3" />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {stats.map((stat, i) => (
             <div key={i} className="text-center group">
-              <div className="mx-auto w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-3 group-hover:bg-primary transition-colors">
-                <stat.icon size={28} className="text-anu-gold group-hover:text-primary-foreground transition-colors" />
+              <div className="mx-auto w-16 h-16 rounded-2xl bg-primary-foreground/8 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:bg-primary-foreground/15 transition-all duration-300 group-hover:scale-110">
+                <stat.icon size={30} className="text-secondary" />
               </div>
-              <div className="text-2xl font-bold text-primary-foreground">{stat.value}</div>
-              <div className="text-sm text-anu-footer-fg">{stat.label}</div>
+              <div className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-1">{stat.value}</div>
+              <div className="text-sm text-anu-footer-fg font-medium tracking-wide uppercase">{stat.label}</div>
             </div>
           ))}
         </div>

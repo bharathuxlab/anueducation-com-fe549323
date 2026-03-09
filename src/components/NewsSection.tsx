@@ -1,4 +1,4 @@
-import { FileText, ExternalLink } from "lucide-react";
+import { FileText, ExternalLink, Calendar, ArrowRight } from "lucide-react";
 
 const newsItems = [
   { title: "M.Phil. Part-1/ Pre.Ph.D-2025 Exams Notification", date: "28 Feb 2026", tag: "Examinations" },
@@ -18,11 +18,21 @@ const events = [
   { title: "International Conference on AI & Data Science", date: "20 Mar 2026" },
 ];
 
+const tagColors: Record<string, string> = {
+  Examinations: "bg-primary/10 text-primary",
+  Research: "bg-accent/10 text-accent",
+  Training: "bg-anu-green/10 text-anu-green",
+  Admissions: "bg-secondary/15 text-secondary-foreground",
+  Guidelines: "bg-muted text-muted-foreground",
+  Events: "bg-primary/10 text-primary",
+  Recruitment: "bg-accent/10 text-accent",
+};
+
 const NewsSection = () => {
   return (
-    <section className="py-12 bg-anu-news">
+    <section className="py-16 md:py-20 bg-anu-news">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Latest News */}
           <div className="lg:col-span-2">
             <h2 className="anu-section-title">Latest News & Notifications</h2>
@@ -30,15 +40,21 @@ const NewsSection = () => {
               {newsItems.map((item, i) => (
                 <div
                   key={i}
-                  className="anu-card flex items-start gap-3 p-4 cursor-pointer group"
+                  className="anu-card flex items-start gap-4 p-5 cursor-pointer group"
                 >
-                  <FileText size={18} className="text-primary mt-0.5 shrink-0" />
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="anu-badge">{item.tag}</span>
-                      <span className="text-xs text-muted-foreground">{item.date}</span>
+                  <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                    <FileText size={18} className="text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                      <span className={`inline-block px-2.5 py-0.5 text-xs font-bold rounded-full ${tagColors[item.tag] || "bg-muted text-muted-foreground"}`}>
+                        {item.tag}
+                      </span>
+                      <span className="text-xs text-muted-foreground flex items-center gap-1">
+                        <Calendar size={11} /> {item.date}
+                      </span>
                     </div>
-                    <p className="text-sm text-foreground group-hover:text-primary transition-colors">
+                    <p className="text-sm text-foreground font-medium group-hover:text-primary transition-colors leading-snug">
                       {item.title}
                     </p>
                   </div>
@@ -48,34 +64,38 @@ const NewsSection = () => {
             </div>
           </div>
 
-          {/* Events */}
+          {/* Sidebar */}
           <div>
             <h2 className="anu-section-title">Upcoming Events</h2>
             <div className="space-y-4">
-              {events.map((event, i) => (
-                <div key={i} className="anu-card p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary text-primary-foreground text-center rounded-md p-2 min-w-[50px]">
-                      <div className="text-lg font-bold leading-none">{event.date.split(" ")[0]}</div>
-                      <div className="text-xs">{event.date.split(" ")[1]}</div>
+              {events.map((event, i) => {
+                const [day, month] = event.date.split(" ");
+                return (
+                  <div key={i} className="anu-card p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-gradient-to-b from-primary to-anu-maroon text-primary-foreground text-center rounded-xl p-3 min-w-[56px]">
+                        <div className="text-xl font-display font-bold leading-none">{day}</div>
+                        <div className="text-[10px] uppercase tracking-wider mt-0.5 font-semibold opacity-80">{month}</div>
+                      </div>
+                      <p className="text-sm font-semibold text-foreground leading-snug">{event.title}</p>
                     </div>
-                    <p className="text-sm font-medium text-foreground">{event.title}</p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Quick Links */}
-            <h2 className="anu-section-title mt-8">Quick Links</h2>
+            <h2 className="anu-section-title mt-10">Quick Links</h2>
             <div className="grid grid-cols-2 gap-2">
               {["Results", "Examinations", "Admissions", "Scholarships", "Library", "ANUCDE", "RTI", "NIRF"].map(
                 (link) => (
                   <a
                     key={link}
                     href="#"
-                    className="anu-card p-3 text-sm text-center font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="anu-card p-3 text-sm text-center font-semibold text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 flex items-center justify-center gap-1 group"
                   >
                     {link}
+                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 )
               )}

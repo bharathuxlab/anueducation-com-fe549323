@@ -115,124 +115,153 @@ const ugcColleges = [
   { name: "VTJM & IVTR Degree College, Mangalagiri", date: "19-07-1990" },
 ];
 
+const gradeStyles: Record<string, string> = {
+  A: "bg-anu-green/15 text-anu-green",
+  "B++": "bg-accent/10 text-accent",
+  "B+": "bg-accent/10 text-accent",
+  B: "bg-secondary/10 text-secondary-foreground",
+  "C++": "bg-muted text-muted-foreground",
+  C: "bg-muted text-muted-foreground",
+};
+
 const Academics = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <div className="container mx-auto px-4 py-10">
-        <h1 className="anu-section-title text-3xl">Academics</h1>
 
-        <section className="mb-10">
-          <h2 className="text-xl font-bold text-anu-maroon mb-4 flex items-center gap-2">
-            <GraduationCap size={22} /> Courses Offered
+      <div className="anu-page-hero">
+        <div className="relative z-10">
+          <h1>Academics</h1>
+          <p>Programmes, Colleges & Accreditation</p>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <section className="mb-14">
+          <h2 className="font-display text-2xl font-bold text-anu-maroon mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <GraduationCap size={22} className="text-primary" />
+            </div>
+            Courses Offered
           </h2>
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { level: "Undergraduate Programs", items: ["B.A.", "B.Sc.", "B.Com.", "B.Tech", "B.Pharm", "BBA", "BCA", "B.Ed.", "LLB"] },
-              { level: "Postgraduate Programs", items: ["M.A.", "M.Sc.", "M.Com.", "M.Tech", "M.Pharm", "MBA", "MCA", "M.Ed.", "LLM"] },
-              { level: "Doctoral Programs", items: ["M.Phil.", "Ph.D.", "D.Sc.", "D.Litt."] },
+              { level: "Undergraduate Programs", items: ["B.A.", "B.Sc.", "B.Com.", "B.Tech", "B.Pharm", "BBA", "BCA", "B.Ed.", "LLB"], color: "from-primary/10 to-primary/5" },
+              { level: "Postgraduate Programs", items: ["M.A.", "M.Sc.", "M.Com.", "M.Tech", "M.Pharm", "MBA", "MCA", "M.Ed.", "LLM"], color: "from-accent/10 to-accent/5" },
+              { level: "Doctoral Programs", items: ["M.Phil.", "Ph.D.", "D.Sc.", "D.Litt."], color: "from-secondary/10 to-secondary/5" },
             ].map((cat) => (
-              <div key={cat.level} className="anu-card p-5">
-                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-                  <BookOpen size={16} className="text-primary" /> {cat.level}
-                </h3>
-                <ul className="space-y-1">
-                  {cat.items.map((item) => (
-                    <li key={item} className="text-sm text-muted-foreground pl-2 border-l-2 border-primary/30">{item}</li>
-                  ))}
-                </ul>
+              <div key={cat.level} className="anu-card p-0 overflow-hidden">
+                <div className={`bg-gradient-to-r ${cat.color} p-5`}>
+                  <h3 className="font-display font-bold text-foreground text-lg flex items-center gap-2">
+                    <BookOpen size={18} className="text-primary" /> {cat.level}
+                  </h3>
+                </div>
+                <div className="p-5">
+                  <ul className="space-y-2">
+                    {cat.items.map((item) => (
+                      <li key={item} className="text-sm text-muted-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="affiliated-colleges" className="mb-10">
-          <h2 className="text-xl font-bold text-anu-maroon mb-4 flex items-center gap-2">
-            <Building2 size={22} /> Affiliated Colleges
+        <section id="affiliated-colleges" className="mb-14">
+          <h2 className="font-display text-2xl font-bold text-anu-maroon mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <Building2 size={22} className="text-primary" />
+            </div>
+            Affiliated Colleges
           </h2>
 
-          <div className="anu-card p-6 mb-6">
+          <div className="anu-card p-6 mb-8">
             <ul className="space-y-2 text-foreground text-sm">
-              <li className="border-l-2 border-primary/30 pl-3">Enhancement in Affiliation fee, Examination fee, Bus Pass Charges and Guest House rent by 10% (w.e.f. 10-07-2019)</li>
-              <li className="border-l-2 border-primary/30 pl-3">Inspection Commission Report for Colleges and Hostel</li>
-              <li className="border-l-2 border-primary/30 pl-3">Affiliated Colleges Directory 2019-2020</li>
+              <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /> Enhancement in Affiliation fee, Examination fee, Bus Pass Charges and Guest House rent by 10% (w.e.f. 10-07-2019)</li>
+              <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /> Inspection Commission Report for Colleges and Hostel</li>
+              <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" /> Affiliated Colleges Directory 2019-2020</li>
             </ul>
           </div>
 
           {/* Autonomous Colleges */}
-          <div className="mb-8">
-            <h3 className="text-lg font-bold text-foreground mb-3">Autonomous Colleges</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-                <thead>
-                  <tr className="bg-anu-maroon text-primary-foreground">
-                    <th className="text-left px-4 py-3 font-semibold">Name of the College</th>
-                    <th className="text-left px-4 py-3 font-semibold">Period</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {autonomousColleges.map((c, i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-background" : "bg-muted/50"}>
-                      <td className="px-4 py-2.5 text-foreground">{c.name}</td>
-                      <td className="px-4 py-2.5 text-muted-foreground">{c.period}</td>
+          <div className="mb-10">
+            <h3 className="font-display text-xl font-bold text-foreground mb-4">Autonomous Colleges</h3>
+            <div className="anu-card overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-anu-maroon to-primary text-primary-foreground">
+                      <th className="text-left px-5 py-3.5 font-semibold">Name of the College</th>
+                      <th className="text-left px-5 py-3.5 font-semibold">Period</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {autonomousColleges.map((c, i) => (
+                      <tr key={i} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-background" : "bg-muted/30"} hover:bg-muted/50 transition-colors`}>
+                        <td className="px-5 py-3 text-foreground">{c.name}</td>
+                        <td className="px-5 py-3 text-muted-foreground font-medium">{c.period}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 
           {/* NAAC Accredited Colleges */}
-          <div className="mb-8">
-            <h3 className="text-lg font-bold text-foreground mb-3">NAAC Accredited Colleges</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-                <thead>
-                  <tr className="bg-anu-maroon text-primary-foreground">
-                    <th className="text-left px-4 py-3 font-semibold">Name of the College</th>
-                    <th className="text-left px-4 py-3 font-semibold">Grade</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {naacColleges.map((c, i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-background" : "bg-muted/50"}>
-                      <td className="px-4 py-2.5 text-foreground">{c.name}</td>
-                      <td className="px-4 py-2.5">
-                        <span className={`inline-block px-2 py-0.5 rounded text-xs font-bold ${
-                          c.grade === "A" ? "bg-green-100 text-green-800" :
-                          c.grade.startsWith("B") ? "bg-blue-100 text-blue-800" :
-                          "bg-amber-100 text-amber-800"
-                        }`}>
-                          {c.grade}
-                        </span>
-                      </td>
+          <div className="mb-10">
+            <h3 className="font-display text-xl font-bold text-foreground mb-4">NAAC Accredited Colleges</h3>
+            <div className="anu-card overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-anu-maroon to-primary text-primary-foreground">
+                      <th className="text-left px-5 py-3.5 font-semibold">Name of the College</th>
+                      <th className="text-left px-5 py-3.5 font-semibold">Grade</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {naacColleges.map((c, i) => (
+                      <tr key={i} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-background" : "bg-muted/30"} hover:bg-muted/50 transition-colors`}>
+                        <td className="px-5 py-3 text-foreground">{c.name}</td>
+                        <td className="px-5 py-3">
+                          <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${gradeStyles[c.grade] || "bg-muted text-muted-foreground"}`}>
+                            {c.grade}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 
           {/* UGC Recognized Colleges */}
-          <div className="mb-8">
-            <h3 className="text-lg font-bold text-foreground mb-3">UGC Recognized Colleges U/S 2(F) & 12(B)</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-                <thead>
-                  <tr className="bg-anu-maroon text-primary-foreground">
-                    <th className="text-left px-4 py-3 font-semibold">Name of the College</th>
-                    <th className="text-left px-4 py-3 font-semibold">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ugcColleges.map((c, i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-background" : "bg-muted/50"}>
-                      <td className="px-4 py-2.5 text-foreground">{c.name}</td>
-                      <td className="px-4 py-2.5 text-muted-foreground">{c.date}</td>
+          <div className="mb-10">
+            <h3 className="font-display text-xl font-bold text-foreground mb-4">UGC Recognized Colleges U/S 2(F) & 12(B)</h3>
+            <div className="anu-card overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-anu-maroon to-primary text-primary-foreground">
+                      <th className="text-left px-5 py-3.5 font-semibold">Name of the College</th>
+                      <th className="text-left px-5 py-3.5 font-semibold">Date</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {ugcColleges.map((c, i) => (
+                      <tr key={i} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-background" : "bg-muted/30"} hover:bg-muted/50 transition-colors`}>
+                        <td className="px-5 py-3 text-foreground">{c.name}</td>
+                        <td className="px-5 py-3 text-muted-foreground font-medium">{c.date}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </section>
