@@ -55,12 +55,12 @@ const QuickInfoCards = () => {
     <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
         {/* Address bar */}
-        <div className="anu-card p-8 mb-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left bg-gradient-to-r from-primary/5 to-transparent">
-          <img src={anuEmblem} alt="ANU Emblem" className="w-32 h-32 object-contain rounded" />
+        <div className="p-10 mb-8 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+          <img src={anuEmblem} alt="ANU Emblem" className="w-44 h-44 object-contain" />
           <div>
-            <h3 className="font-bold text-foreground text-2xl md:text-3xl mb-2">Acharya Nagarjuna University</h3>
-            <p className="text-muted-foreground text-base md:text-lg flex items-center gap-2 justify-center md:justify-start">
-              <MapPin size={18} className="text-primary shrink-0" />
+            <h3 className="font-bold text-foreground text-3xl md:text-4xl mb-3">Acharya Nagarjuna University</h3>
+            <p className="text-muted-foreground text-lg md:text-xl flex items-center gap-2 justify-center md:justify-start">
+              <MapPin size={22} className="text-primary shrink-0" />
               NH16, Nagarjuna Nagar, Guntur, Andhra Pradesh 522510
             </p>
           </div>
