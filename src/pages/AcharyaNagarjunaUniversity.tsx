@@ -73,12 +73,12 @@ const AcharyaNagarjunaUniversity = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Acharya Nagarjuna University – Results, Transcripts & Verification</title>
+        <title>Acharya Nagarjuna University | Results & Transcripts</title>
         <meta
           name="description"
-          content="Complete guide to Acharya Nagarjuna University – check ANU results, apply for transcripts, degree verification, courses offered, and student support services."
+          content="Acharya Nagarjuna University student guide – check ANU results, apply for transcripts, degree verification, courses & support services."
         />
-        <meta name="keywords" content="Acharya Nagarjuna University, ANU transcripts, ANU results, ANU degree verification, ANU student services, ANU exam results" />
+        <meta name="keywords" content="Acharya Nagarjuna University, ANU transcripts, ANU results, Acharya Nagarjuna University degree verification, ANU student services, ANU exam results, ANU courses, ANU Guntur" />
         <link rel="canonical" href="https://anueducation.com/acharya-nagarjuna-university" />
 
         {/* Open Graph */}
@@ -116,9 +116,12 @@ const AcharyaNagarjunaUniversity = () => {
       <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
 
         {/* Intro */}
-        <div className="prose prose-lg max-w-none mb-14">
+        <div className="prose prose-lg max-w-none mb-14 space-y-4">
           <p className="text-foreground text-lg leading-relaxed">
-            <strong>Acharya Nagarjuna University (ANU)</strong> is one of the most prominent state universities in Andhra Pradesh, India. Established in 1976 and accredited with an <strong>A+ grade by NAAC</strong>, ANU serves thousands of students across multiple disciplines. Whether you're a current student checking your <strong>ANU exam results</strong>, a graduate applying for <strong>ANU transcripts</strong>, or an employer seeking <strong>degree verification</strong>, this comprehensive guide provides everything you need to know about Acharya Nagarjuna University and its student services.
+            <strong>Acharya Nagarjuna University (ANU)</strong> is one of the most prominent state universities in Andhra Pradesh, India. Established in 1976 and accredited with an <strong>A+ grade by NAAC</strong>, ANU serves thousands of students across multiple disciplines. Whether you're a current student checking your <strong>ANU exam results</strong>, a graduate applying for <strong>ANU transcripts</strong>, or an employer seeking <strong>Acharya Nagarjuna University degree verification</strong>, this comprehensive guide provides everything you need to know about Acharya Nagarjuna University and its student services.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Every year, lakhs of students search online for Acharya Nagarjuna University information — from checking semester results to requesting transcripts for overseas education. This page covers all the essential ANU student services including <Link to="/academics" className="text-primary font-semibold hover:underline">academic information</Link>, exam updates, document processing, and <Link to="/student-verify" className="text-primary font-semibold hover:underline">student verification services</Link>. For details on university governance, visit the <Link to="/administration" className="text-primary font-semibold hover:underline">administration</Link> section.
           </p>
         </div>
 
@@ -251,9 +254,12 @@ const AcharyaNagarjunaUniversity = () => {
                 </li>
               ))}
             </ul>
-            <h3 className="font-display text-xl font-bold text-foreground mt-6">Tips for Result Updates</h3>
+            <h3 className="font-display text-xl font-bold text-foreground mt-6">Tips for ANU Result Updates</h3>
             <p className="text-muted-foreground leading-relaxed">
               ANU results are typically published within 30–45 days after examinations. Students should regularly check the official university website for notifications regarding result announcements, revaluation dates, and supplementary exam schedules. Bookmark the results page to stay updated on the latest <strong>ANU semester results</strong>.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              If you are unable to find your Acharya Nagarjuna University results online, you can also use our <Link to="/student-verify" className="text-primary font-semibold hover:underline">student verification services</Link> to access your academic records. For queries about specific programs, check our <Link to="/academics" className="text-primary font-semibold hover:underline">academic information</Link> page.
             </p>
           </div>
         </section>
@@ -286,7 +292,10 @@ const AcharyaNagarjunaUniversity = () => {
             </ul>
             <h3 className="font-display text-xl font-bold text-foreground mt-6">How to Request ANU Transcripts</h3>
             <p className="text-muted-foreground leading-relaxed">
-              To request transcripts from Acharya Nagarjuna University, students typically need to submit an application to the examination branch along with copies of their mark sheets, degree certificate, and identification documents. The processing time is usually <strong>15 to 30 working days</strong>. For faster processing and guidance, students can use dedicated student service platforms.
+              To request transcripts from Acharya Nagarjuna University, students typically need to submit an application to the examination branch along with copies of their mark sheets, degree certificate, and identification documents. The processing time is usually <strong>15 to 30 working days</strong>. For faster processing and guidance, students can use our <Link to="/student-verify" className="text-primary font-semibold hover:underline">student verification services</Link> for dedicated transcript support.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Many students applying for higher studies abroad or seeking employment internationally require <strong>ANU transcripts</strong> in sealed envelopes sent directly to foreign universities. Acharya Nagarjuna University provides both physical and digitally attested transcripts depending on the requirement. Understanding the <Link to="/administration" className="text-primary font-semibold hover:underline">administration processes</Link> can help expedite your request.
             </p>
           </div>
         </section>
@@ -297,7 +306,7 @@ const AcharyaNagarjunaUniversity = () => {
             <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
               <ShieldCheck size={22} className="text-primary" />
             </div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground m-0">ANU Degree Verification</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground m-0">Acharya Nagarjuna University Degree Verification</h2>
           </div>
           <div className="anu-card p-6 md:p-8 space-y-4">
             <p className="text-foreground leading-relaxed">
