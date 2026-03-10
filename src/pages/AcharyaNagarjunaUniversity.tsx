@@ -254,9 +254,12 @@ const AcharyaNagarjunaUniversity = () => {
                 </li>
               ))}
             </ul>
-            <h3 className="font-display text-xl font-bold text-foreground mt-6">Tips for Result Updates</h3>
+            <h3 className="font-display text-xl font-bold text-foreground mt-6">Tips for ANU Result Updates</h3>
             <p className="text-muted-foreground leading-relaxed">
               ANU results are typically published within 30–45 days after examinations. Students should regularly check the official university website for notifications regarding result announcements, revaluation dates, and supplementary exam schedules. Bookmark the results page to stay updated on the latest <strong>ANU semester results</strong>.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              If you are unable to find your Acharya Nagarjuna University results online, you can also use our <Link to="/student-verify" className="text-primary font-semibold hover:underline">student verification services</Link> to access your academic records. For queries about specific programs, check our <Link to="/academics" className="text-primary font-semibold hover:underline">academic information</Link> page.
             </p>
           </div>
         </section>
