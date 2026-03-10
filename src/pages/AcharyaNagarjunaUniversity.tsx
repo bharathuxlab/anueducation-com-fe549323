@@ -297,6 +297,8 @@ const AcharyaNagarjunaUniversity = () => {
             <p className="text-muted-foreground leading-relaxed">
               Many students applying for higher studies abroad or seeking employment internationally require <strong>ANU transcripts</strong> in sealed envelopes sent directly to foreign universities. Acharya Nagarjuna University provides both physical and digitally attested transcripts depending on the requirement. Understanding the <Link to="/administration" className="text-primary font-semibold hover:underline">administration processes</Link> can help expedite your request.
             </p>
+          </div>
+        </section>
 
         {/* Section 5: Degree Verification */}
         <section className="mb-14" id="degree-verification">
