@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<url>
-<loc>https://anueducation.com/</loc>
-</url>
-
-<url>
-<loc>https://anueducation.com/about</loc>
-</url>
-
-<url>
-<loc>https://anueducation.com/administration</loc>
-</url>
-
-<url>
-<loc>https://anueducation.com/academics</loc>
-</url>
-
-<url>
-<loc>https://anueducation.com/student-verify</loc>
-</url>
-
-<url>
-<loc>https://anueducation.com/contact</loc>
-</url>
-
+  <url><loc>https://anueducation.com/</loc></url>
+  <url><loc>https://anueducation.com/about</loc></url>
+  <url><loc>https://anueducation.com/administration</loc></url>
+  <url><loc>https://anueducation.com/academics</loc></url>
+  <url><loc>https://anueducation.com/student-verify</loc></url>
+  <url><loc>https://anueducation.com/contact</loc></url>
+  <url><loc>https://anueducation.com/acharya-nagarjuna-university</loc></url>
+  <url><loc>https://anueducation.com/results</loc></url>
+  <url><loc>https://anueducation.com/ranking</loc></url>
+  <url><loc>https://anueducation.com/university-colleges</loc></url>
 </urlset>
