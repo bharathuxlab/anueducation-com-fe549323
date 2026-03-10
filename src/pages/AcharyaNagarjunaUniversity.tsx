@@ -292,10 +292,11 @@ const AcharyaNagarjunaUniversity = () => {
             </ul>
             <h3 className="font-display text-xl font-bold text-foreground mt-6">How to Request ANU Transcripts</h3>
             <p className="text-muted-foreground leading-relaxed">
-              To request transcripts from Acharya Nagarjuna University, students typically need to submit an application to the examination branch along with copies of their mark sheets, degree certificate, and identification documents. The processing time is usually <strong>15 to 30 working days</strong>. For faster processing and guidance, students can use dedicated student service platforms.
+              To request transcripts from Acharya Nagarjuna University, students typically need to submit an application to the examination branch along with copies of their mark sheets, degree certificate, and identification documents. The processing time is usually <strong>15 to 30 working days</strong>. For faster processing and guidance, students can use our <Link to="/student-verify" className="text-primary font-semibold hover:underline">student verification services</Link> for dedicated transcript support.
             </p>
-          </div>
-        </section>
+            <p className="text-muted-foreground leading-relaxed">
+              Many students applying for higher studies abroad or seeking employment internationally require <strong>ANU transcripts</strong> in sealed envelopes sent directly to foreign universities. Acharya Nagarjuna University provides both physical and digitally attested transcripts depending on the requirement. Understanding the <Link to="/administration" className="text-primary font-semibold hover:underline">administration processes</Link> can help expedite your request.
+            </p>
 
         {/* Section 5: Degree Verification */}
         <section className="mb-14" id="degree-verification">
