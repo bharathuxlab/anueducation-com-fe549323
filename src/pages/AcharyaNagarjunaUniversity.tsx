@@ -116,9 +116,12 @@ const AcharyaNagarjunaUniversity = () => {
       <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
 
         {/* Intro */}
-        <div className="prose prose-lg max-w-none mb-14">
+        <div className="prose prose-lg max-w-none mb-14 space-y-4">
           <p className="text-foreground text-lg leading-relaxed">
-            <strong>Acharya Nagarjuna University (ANU)</strong> is one of the most prominent state universities in Andhra Pradesh, India. Established in 1976 and accredited with an <strong>A+ grade by NAAC</strong>, ANU serves thousands of students across multiple disciplines. Whether you're a current student checking your <strong>ANU exam results</strong>, a graduate applying for <strong>ANU transcripts</strong>, or an employer seeking <strong>degree verification</strong>, this comprehensive guide provides everything you need to know about Acharya Nagarjuna University and its student services.
+            <strong>Acharya Nagarjuna University (ANU)</strong> is one of the most prominent state universities in Andhra Pradesh, India. Established in 1976 and accredited with an <strong>A+ grade by NAAC</strong>, ANU serves thousands of students across multiple disciplines. Whether you're a current student checking your <strong>ANU exam results</strong>, a graduate applying for <strong>ANU transcripts</strong>, or an employer seeking <strong>Acharya Nagarjuna University degree verification</strong>, this comprehensive guide provides everything you need to know about Acharya Nagarjuna University and its student services.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Every year, lakhs of students search online for Acharya Nagarjuna University information — from checking semester results to requesting transcripts for overseas education. This page covers all the essential ANU student services including <Link to="/academics" className="text-primary font-semibold hover:underline">academic information</Link>, exam updates, document processing, and <Link to="/student-verify" className="text-primary font-semibold hover:underline">student verification services</Link>. For details on university governance, visit the <Link to="/administration" className="text-primary font-semibold hover:underline">administration</Link> section.
           </p>
         </div>
 
