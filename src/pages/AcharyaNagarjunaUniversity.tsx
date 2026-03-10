@@ -73,12 +73,12 @@ const AcharyaNagarjunaUniversity = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Acharya Nagarjuna University – Results, Transcripts & Verification</title>
+        <title>Acharya Nagarjuna University | Results & Transcripts</title>
         <meta
           name="description"
-          content="Complete guide to Acharya Nagarjuna University – check ANU results, apply for transcripts, degree verification, courses offered, and student support services."
+          content="Acharya Nagarjuna University student guide – check ANU results, apply for transcripts, degree verification, courses & support services."
         />
-        <meta name="keywords" content="Acharya Nagarjuna University, ANU transcripts, ANU results, ANU degree verification, ANU student services, ANU exam results" />
+        <meta name="keywords" content="Acharya Nagarjuna University, ANU transcripts, ANU results, Acharya Nagarjuna University degree verification, ANU student services, ANU exam results, ANU courses, ANU Guntur" />
         <link rel="canonical" href="https://anueducation.com/acharya-nagarjuna-university" />
 
         {/* Open Graph */}
