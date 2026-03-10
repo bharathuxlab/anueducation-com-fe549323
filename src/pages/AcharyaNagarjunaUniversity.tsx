@@ -306,7 +306,7 @@ const AcharyaNagarjunaUniversity = () => {
             <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
               <ShieldCheck size={22} className="text-primary" />
             </div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground m-0">ANU Degree Verification</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground m-0">Acharya Nagarjuna University Degree Verification</h2>
           </div>
           <div className="anu-card p-6 md:p-8 space-y-4">
             <p className="text-foreground leading-relaxed">
