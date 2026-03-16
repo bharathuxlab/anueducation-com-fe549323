@@ -19,6 +19,7 @@ const ContactBar = () => {
         <div>
           <h3 className="font-display font-bold text-sm text-primary-foreground uppercase tracking-wider">Email Us</h3>
           <p className="text-sm text-primary-foreground/80 mt-0.5">registrar@anueducation.in</p>
+          <p className="text-sm text-primary-foreground/80 mt-0.5">registrar@acharya-nagarjuna-university.org</p>
         </div>
       </div>
       <div className="bg-gradient-to-r from-anu-dark to-anu-nav flex items-center gap-4 px-6 py-5">

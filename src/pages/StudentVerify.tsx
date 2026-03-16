@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, GraduationCap, User, Calendar, BookOpen, Languages, Hash, FileText, ShieldCheck, Printer } from "lucide-react";
+import { Search, GraduationCap, User, Calendar, BookOpen, Languages, Hash, FileText, ShieldCheck, Printer, Mail } from "lucide-react";
 import anuLogo from "@/assets/anu-logo.png";
 import studentPhoto from "@/assets/student-photo.png";
 import { MOCK_STUDENTS, type StudentData } from "@/data/studentData";
@@ -197,13 +197,29 @@ const StudentVerify = () => {
         )}
 
         {searched && !result && (
-          <div className="max-w-xl mx-auto text-center">
+          <div className="max-w-2xl mx-auto text-center">
             <div className="bg-card rounded-2xl shadow-xl border border-border p-10">
-              <div className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center mx-auto mb-4">
-                <Search size={28} className="text-destructive" />
+              <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-4">
+                <Search size={28} className="text-amber-600" />
               </div>
-              <p className="text-destructive font-bold text-lg">No Record Found</p>
-              <p className="text-sm text-muted-foreground mt-2">No student record found for this hall ticket number. Please check and try again.</p>
+              <p className="font-bold text-lg text-foreground">Record Not Found in Our Database</p>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                We couldn't find a student record matching this hall ticket number in our current database. <strong className="text-foreground">Don't worry — this does not mean the student does not exist.</strong> Our database is being updated regularly, and some records may not yet be available online.
+              </p>
+              <div className="mt-6 p-5 rounded-xl bg-muted/50 border border-border text-left space-y-3">
+                <p className="text-sm font-semibold text-foreground">Need help? Contact us directly:</p>
+                <div className="flex items-center gap-2 text-sm">
+                  <Mail size={14} className="text-primary shrink-0" />
+                  <a href="mailto:registrar@anueducation.in" className="text-primary hover:underline">registrar@anueducation.in</a>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Mail size={14} className="text-primary shrink-0" />
+                  <a href="mailto:registrar@acharya-nagarjuna-university.org" className="text-primary hover:underline">registrar@acharya-nagarjuna-university.org</a>
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Please include your full name, hall ticket number, and degree details in your email for faster assistance.
+                </p>
+              </div>
             </div>
           </div>
         )}

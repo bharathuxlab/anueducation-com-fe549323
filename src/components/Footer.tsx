@@ -70,7 +70,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="shrink-0 text-secondary" />
-                <span>registrar@anueducation.com</span>
+                <span>registrar@anueducation.in</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={16} className="shrink-0 text-secondary" />
+                <span>registrar@acharya-nagarjuna-university.org</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="shrink-0 text-secondary" />

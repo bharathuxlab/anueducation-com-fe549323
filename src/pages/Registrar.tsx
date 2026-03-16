@@ -18,9 +18,12 @@ const Registrar = () => {
               <p className="text-sm text-primary font-medium mb-1">Registrar</p>
               <p className="text-sm text-muted-foreground mb-4">M.Sc, Ph.D.</p>
 
-              <div className="bg-muted/50 rounded-md p-4 mb-6 text-sm space-y-1">
+              <div className="bg-muted/50 rounded-md p-4 mb-6 text-sm space-y-2">
                 <p>✉️ <span className="font-medium">Email:</span>{" "}
                   <a href="mailto:registrar@anueducation.in" className="text-primary hover:underline">registrar@anueducation.in</a>
+                </p>
+                <p>✉️ <span className="font-medium">Email:</span>{" "}
+                  <a href="mailto:registrar@acharya-nagarjuna-university.org" className="text-primary hover:underline">registrar@acharya-nagarjuna-university.org</a>
                 </p>
               </div>
 
