@@ -29,7 +29,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-foreground text-lg mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.content}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{item.content}</p>
                 </div>
               </div>
             ))}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, GraduationCap, User, Calendar, BookOpen, Languages, Hash, FileText, ShieldCheck, Printer } from "lucide-react";
+import { Search, GraduationCap, User, Calendar, BookOpen, Languages, Hash, FileText, ShieldCheck, Printer, Mail } from "lucide-react";
 import anuLogo from "@/assets/anu-logo.png";
 import studentPhoto from "@/assets/student-photo.png";
 import { MOCK_STUDENTS, type StudentData } from "@/data/studentData";
