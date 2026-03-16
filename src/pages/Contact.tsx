@@ -20,7 +20,7 @@ const Contact = () => {
           <div className="space-y-5">
             {[
               { icon: MapPin, title: "Address", content: "Acharya Nagarjuna University, Nagarjuna Nagar, Guntur – 522510, Andhra Pradesh, India", color: "from-primary/10 to-primary/5" },
-              { icon: Mail, title: "Email", content: "registrar@anueducation.in", color: "from-accent/10 to-accent/5" },
+              { icon: Mail, title: "Email", content: "registrar@anueducation.in\nregistrar@acharya-nagarjuna-university.org", color: "from-accent/10 to-accent/5" },
               { icon: Clock, title: "Office Hours", content: "Monday – Saturday: 10:00 AM – 5:00 PM", color: "from-secondary/10 to-secondary/5" },
             ].map((item) => (
               <div key={item.title} className="anu-card p-6 flex gap-5 items-start">
