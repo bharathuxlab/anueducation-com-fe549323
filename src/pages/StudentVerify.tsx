@@ -67,7 +67,7 @@ const StudentVerify = () => {
                 value={hallTicket}
                 onChange={(e) => setHallTicket(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                placeholder="e.g. A19RG89741"
+                placeholder=""
                 className="flex-1 border-2 border-border rounded-xl px-5 py-3 text-base bg-background text-foreground uppercase font-medium tracking-wider focus:border-[hsl(var(--anu-maroon))] focus:outline-none transition-colors"
               />
               <button
