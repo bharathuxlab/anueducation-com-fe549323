@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Search, GraduationCap, User, Calendar, BookOpen, Languages, Hash, FileText, ShieldCheck, Printer, Mail } from "lucide-react";
 import anuLogo from "@/assets/anu-logo.png";
-import studentPhoto from "@/assets/student-photo.png";
+
 import { MOCK_STUDENTS, type StudentData } from "@/data/studentData";
 
 const StudentVerify = () => {
@@ -108,25 +108,17 @@ const StudentVerify = () => {
                 </div>
               </div>
 
-              {/* Student Info with Photo */}
+              {/* Student Info */}
               <div className="p-8">
-                <div className="flex flex-col md:flex-row gap-6 mb-8">
-                  {/* Photo */}
-                  <div className="flex-shrink-0 flex flex-col items-center">
-                    <div className="w-36 h-44 rounded-xl overflow-hidden border-4 shadow-lg" style={{ borderColor: "hsl(var(--anu-maroon))" }}>
-                      <img src={studentPhoto} alt={result.name} className="w-full h-full object-cover" />
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-2 font-medium">{result.hallTicketNumber}</p>
-                  </div>
-
-                  {/* Details Grid */}
-                  <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 rounded-xl bg-muted/50 border border-border">
+                <div className="mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 rounded-xl bg-muted/50 border border-border">
                     <InfoField icon={<User size={15} />} label="Name of the Student" value={result.name} />
+                    <InfoField icon={<Hash size={15} />} label="Hall Ticket No." value={result.hallTicketNumber} />
                     <InfoField icon={<Hash size={15} />} label="Registration No." value={result.regNo} />
                     <InfoField icon={<User size={15} />} label="Son / Daughter of" value={result.fatherName} />
-                    <InfoField icon={<Languages size={15} />} label="Languages" value={result.language} />
                     <InfoField icon={<GraduationCap size={15} />} label="Course / Degree" value={result.degree} />
                     <InfoField icon={<BookOpen size={15} />} label="Group" value={result.group} />
+                    <InfoField icon={<Languages size={15} />} label="Languages" value={result.language} />
                     <InfoField icon={<Calendar size={15} />} label="Period of Study" value={result.studyPeriod} />
                     <InfoField icon={<Calendar size={15} />} label="Month & Year of Passing" value={result.passedOut} />
                   </div>
