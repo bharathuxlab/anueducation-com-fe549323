@@ -76,14 +76,6 @@ const Footer = () => {
                 <Mail size={16} className="shrink-0 text-secondary" />
                 <span>registrar@acharya-nagarjuna-university.org</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="shrink-0 text-secondary" />
-                <span>helpcenter@anu.ac.in</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Globe size={16} className="shrink-0 text-secondary" />
-                <span>www.anu.ac.in</span>
-              </li>
             </ul>
           </div>
         </div>
