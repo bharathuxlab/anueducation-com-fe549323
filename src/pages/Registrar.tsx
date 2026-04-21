@@ -22,9 +22,6 @@ const Registrar = () => {
                 <p>✉️ <span className="font-medium">Email:</span>{" "}
                   <a href="mailto:registrar@anueducation.in" className="text-primary hover:underline">registrar@anueducation.in</a>
                 </p>
-                <p>✉️ <span className="font-medium">Email:</span>{" "}
-                  <a href="mailto:registrar@acharya-nagarjuna-university.org" className="text-primary hover:underline">registrar@acharya-nagarjuna-university.org</a>
-                </p>
               </div>
 
               <h3 className="text-lg font-semibold text-anu-maroon mb-3">Registrar's Message</h3>
