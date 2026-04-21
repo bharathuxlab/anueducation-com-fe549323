@@ -117,7 +117,7 @@ const Header = () => {
       <div className="flex flex-col md:flex-row items-stretch">
         <div className="bg-[hsl(15,80%,60%)] px-4 py-2 flex items-center gap-2 text-primary-foreground text-sm font-medium whitespace-nowrap">
           <Mail size={16} />
-          <span>Email Now : <a href="mailto:registrar@anueducation.in" className="font-bold hover:underline">registrar@anueducation.in</a> | <a href="mailto:registrar@acharya-nagarjuna-university.org" className="font-bold hover:underline">registrar@acharya-nagarjuna-university.org</a></span>
+<span>Email Now : <a href="mailto:registrar@anueducation.in" className="font-bold hover:underline">registrar@anueducation.in</a></span>
         </div>
         <div className="flex-1 bg-[hsl(190,60%,30%)] px-4 py-2 flex items-center justify-center text-primary-foreground text-center">
           <p className="text-sm md:text-base font-bold leading-tight">
