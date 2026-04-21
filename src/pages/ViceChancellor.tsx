@@ -18,15 +18,6 @@ const ViceChancellor = () => {
               <p className="text-sm text-primary font-medium mb-1">Vice-Chancellor (I/c)</p>
               <p className="text-sm text-muted-foreground mb-4">M.Tech., Ph.D.</p>
 
-              <div className="bg-muted/50 rounded-md p-4 mb-6 text-sm space-y-1">
-                <p>📞 <span className="font-medium">Contact:</span> 0863 - (O)2346182</p>
-                <p>📠 <span className="font-medium">Fax Number:</span> 0863-2293378</p>
-                <p>✉️ <span className="font-medium">Email:</span>{" "}
-                  <a href="mailto:vc@anu.ac.in" className="text-primary hover:underline">vc@anu.ac.in</a>,{" "}
-                  <a href="mailto:nu_vc@yahoo.co.in" className="text-primary hover:underline">nu_vc@yahoo.co.in</a>
-                </p>
-              </div>
-
               <h3 className="text-lg font-semibold text-anu-maroon mb-3">Vice-Chancellor's Message</h3>
 
               <p className="text-foreground leading-relaxed mb-4 italic">
